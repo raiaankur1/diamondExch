@@ -1,32 +1,38 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="{% static '/style.css' %}">
     <script src="https://kit.fontawesome.com/9267f5f00e.js" crossorigin="anonymous"></script>
 
 </head>
+
 <body>
-    
+
     <div class="wrapper">
-         <h1 class="h1">Login</h1>
-         <form action="#">
-            <input  class="register_input" type="text" placeholder="Username">
+        <h1 class="h1">Login</h1>
+        <form action="#">
+            {% csrf_token %}
+            {{ form }}
+            <input class="register_input" type="text" placeholder="Username">
             <input class="register_input" type="password" placeholder="password">
             <div class="recover">
                 <a href="#">Forget password ?</a>
             </div>
-         </form>
+        </form>
 
-         <a href="/otp.html"><button>Get OTP</button></a>
-         <div class="member">
+        <a href="/otp.html"><button>Get OTP</button></a>
+        <div class="member">
             Not a member? <a href="/Index.html">Register Now</a>
-         </div>
+        </div>
     </div>
 
 
-    <script src="/js.js"></script>
+    <script src="{% static '/js.js' %}"></script>
 </body>
+
 </html>
