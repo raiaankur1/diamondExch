@@ -9,19 +9,28 @@
 }
 :root{
     --primary: #0383C4;
+    --deposit:#74C16F;
+    --withdraw: #647FEA;
+    --password: #EF8C19;
+    --whatsapp: #4BC658;
+    --primary-back: linear-gradient(var(--primary),#034c70);
 }
 
 /* nav section  */
 
 .home__main{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     height: 100vh;
-    background-color: rgb(255, 255, 255);
 }
 .nav__master{
-    width: 100%;
-    height: 100vh;
+    width: 22%;
+    height: 85vh;
     background-color: rgb(255, 255, 255);
+    transition: 1s;
 
 }
 .home__nav{
@@ -29,15 +38,14 @@
  flex-direction: column;
  justify-content: space-between;
  position: relative;
- width: 22%;
- height: 85vh;
- gap: 3rem;
- left: 5%;
+ width: 100%;
+ height: 100%;
+ gap: 1rem;
  top: 50%;
- box-shadow: -2px 2px 40px;
- background-color: var(--primary);
  transform: translateY(-50%);
- border-radius: 2rem;
+ background-color: var(--primary);
+ border-top-left-radius: 2rem;
+ border-bottom-left-radius: 2rem;
  align-items: center;
  justify-content: center;
 }
@@ -46,7 +54,17 @@
     display: flex;
     flex-direction: column;
     text-align: center;
-    gap: 1.825rem;
+    gap: 1.5rem;
+}
+.menu__item:nth-child(7) a{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    color: rgb(255, 68, 68);
+    font-weight: 600;
+}
+.menu__item:nth-child(7) a svg{
+    fill: rgb(255, 68, 68);
 }
 .menu__item{
     text-decoration: none;
@@ -89,7 +107,18 @@
     }
 }
 @media only screen and (max-width: 900px){
-    
+    .nav__master{
+        position: fixed;
+        top: 0;
+        z-index: 100;
+        width: 100%;
+        height: 8vh;
+    }
+    .nav__master.active{
+        z-index: 100;
+        width: 100%;
+        height: 100vh;
+    }
     .hamburger{
        display: block;
        position: absolute;
@@ -103,32 +132,492 @@
         /* border-radius: 50%; */
         background: var(--primary);
         width: 100%;
-        height: 8vh;
+        height: 100%;
+        z-index: 100;
     }
-
-
+    
+    
     .hamburger__main .hamburger .line{
-       width: 25px;
-       height: 3px;
+        width: 25px;
+        height: 3px;
        background-color: #fff;
        margin: 6px 0;
     }
     .home__nav{
+        position: fixed;
+        display: none;
         height: 0;
         transition: .3s;
     }
     .home__nav.active{
+        display: flex;
         width: 100vw;
-        height: 92vh;
-        box-shadow: none;
+        height: 100vh;
         border-radius: 0;
         left: 0;
     }
     .home__nav__img img{
-      width: 10rem;
+        width: 10rem;
     }
     .menu__item a{
         font-size: 17px;
         font-weight: 500;
     }
 }
+
+
+/* ----------------home__section */
+
+
+
+
+.home__section__master{
+    height: 85vh;
+    width: 65%;
+    background-color: #FFF;
+    top: 50%;
+    border-top-right-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    /* border-top: 2px solid black; */
+    border-bottom: 2px solid black;
+    border-right: 2px solid black;
+}
+.home__section__master nav{
+    top: 0;
+    width: 100%;
+    background-color: var(--primary);
+    height: 3.5rem;
+    border-top-right-radius: 2rem;
+}
+.deposit__section__master{
+    height: 85vh;
+    width: 65%;
+    background-color: #FFF;
+    top: 50%;
+    border-top-right-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    /* border-top: 2px solid black; */
+    border-bottom: 2px solid black;
+    border-right: 2px solid black;
+}
+.deposit__section__master nav{
+    top: 0;
+    width: 100%;
+    background-color: var(--primary);
+    height: 3.5rem;
+    border-top-right-radius: 2rem;
+}
+
+.home__information-amount{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.total-balance{
+   display: flex;
+   align-items: center;
+   margin:  0 2rem 0 1rem;
+}
+
+.total-balance h3{
+    color: #fff;
+    font-weight: 500;
+    font-size: 15px;
+}
+.wallet__svg{
+    fill: #fff;
+}
+.amount{
+    margin: 0 2rem 0 1rem;
+    display: inline-block;
+}
+.account__detail{
+    display: flex;
+    margin: 0 2rem 0 1rem;
+    gap: .5rem;
+    align-items: center;
+}
+.account__detail svg{
+    fill: #FFF;
+}
+.account__detail h3{
+    color: #FFF;
+    font-weight: 500;
+    font-size: 15px;
+}
+.amount h3{
+    color: #fff;
+    font-weight: 500;
+    font-size: 15px;
+
+}
+
+   /* home media queary  */
+@media only screen and (max-width: 1150px){
+
+    /* //we will right back soon 😉*/
+
+}
+
+
+@media only screen and (max-width: 900px){
+    .home__main{
+    flex-direction: column;
+    gap: 2rem;
+}
+.nav__master{
+    position: fixed;
+    top: 0;
+}
+.home__section__master{
+    transform: translateY(37.25%);
+    width: 100%;
+    height: 400%;
+    border-radius: 0;
+    }
+    .home__section__master nav{
+        /* position: fixed; */
+        border-radius: 0;
+    }
+.deposit__section__master{
+    transform: translateY(37.25%);
+    width: 100%;
+    height: 400%;
+    /* border: none; */
+    border: 01px solid black;
+    border-radius: 0;
+    }
+    .deposit__section__master nav{
+        /* position: fixed; */
+        border-radius: 0;
+    }
+    .total-balance{
+        margin: 0 0 0 10px;
+    }
+    .wallet__svg svg{
+        height: 1.5em;
+    }
+    .amount h3{
+        font-size: 11px
+    }
+    .amount span{
+        font-size: 13px;
+    }
+    .account__detail{
+        margin: 0 10px 0 0;
+    }
+    .account__detail svg{
+        height: 1.5em;
+    }
+    .account__detail h3{
+        font-size: 13px;
+    }
+    .username__id{
+        height: 00%;
+
+    }
+    
+}
+
+
+/* ------------home section inner section  */
+
+.person__deposit-info{
+    display: flex;
+    flex-direction: column;
+}
+.username__id{
+    display: flex;
+    width: 100%;
+    height: 20vh;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.username__id input{
+     outline: none;
+     border: none;
+     height: 35px;
+     margin: 0 1.5vw 0 1.5vw;
+     font-size: 1vw;
+     border-bottom: 1px solid black;
+}
+
+
+
+.amount__tranfer{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 57vh;
+    justify-content: space-evenly;
+    
+}
+.whatsapp__help{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 2rem;
+    gap: 1rem;
+    height: 100%;
+    width: 30%;
+    background-color: var(--whatsapp);
+    cursor: pointer;
+}
+
+.whatsapp__help svg{
+    fill: #FFF;
+}
+.whatsapp__help h3{
+    font-size: 1.75vw;
+    color: #FFF;
+}
+
+.amount__deposit-section{
+    height: 100%;
+    width: 30%;
+    display: flex;
+    flex-direction: column;   
+    align-items: center;
+    justify-content: space-evenly;
+    background: var(--primary-back);
+    border: 1px solid gray;
+    border-radius: 2rem;
+}
+.amount__deposit-section h3{
+    height: 20%;
+    width: 80%;
+    text-align: center;
+    color: #fff;
+    font-size: 1.5rem;
+
+    
+}
+
+.amount__deposit-section button{
+    cursor: pointer;
+    outline: none;
+    border: none;
+    border-radius: 2rem;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.5vw;
+    width: 80%;
+    height: 20%;
+    background-color: #74C16F;
+}
+.amount__deposit-section button:nth-child(1){
+    background-color: var(--deposit);
+}
+.amount__deposit-section button:nth-child(2){
+    background-color: var(--withdraw);
+}
+
+
+/* diamond login home form  */
+.diamond__login__main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+    height: 100%;
+    background: linear-gradient(var(--primary),#034c70);
+    border-radius: 2rem;
+}
+.diamond__login__img img{
+    height: 3.75em;
+}
+.diamond__login__form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    width: 90%;
+    height: 70%;
+    background-color: #fff;
+    border-radius: 1rem;
+}
+.diamond__login__form input{
+    width: 90%;
+    height: 13%;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid black;
+    background-color: #fff;
+
+}
+.diamond__login__form button{
+    margin-top: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .45rem;
+    color: #fff;
+    background: var(--primary);
+    outline: none;
+    border: none;
+    width: 90%;
+    height: 13%;
+    font-size: 18px;
+}
+.diamond__login__form button svg{
+    fill: #fff;
+    
+}
+.diamond__login__form p{
+    margin-top: .5rem ;
+    font-size: 10px;
+    width: 90%;
+}
+.diamond__login__form a{
+    width: 90%;
+    text-align: center;
+    font-size: 15px;
+    text-decoration: none;
+    color: var(--primary);
+}
+
+
+@media only screen and (max-width: 900px){
+    .person__deposit-info{
+        gap: 1rem;
+    }
+    .username__id{
+         
+        height: fit-content;
+        padding: 2rem 0 2rem 0;
+    }
+    .username__id input{
+       margin: 0 1rem 0 1rem;
+        font-size: 17px;        
+     }
+    .amount__tranfer{
+        flex-direction: column;
+        height: fit-content;
+    }
+    .diamond__login__main{
+        width: 100%;
+        border-radius: 0;
+        height: 100vh;
+    }
+    .whatsapp__help{
+        height: 100vh;
+        border-radius: 0;
+        width: 100%;
+    }
+    .diamond__login__main{
+        width: 100%;
+    }
+    .amount__deposit-section{
+        width: 100%;
+        height: 100vh;
+        border-radius: 0;
+    }
+    .amount__deposit-section h3{
+        font-size: 40px;
+    }
+    .amount__deposit-section button{
+        font-size: 30px;
+    }
+    .whatsapp__help svg{
+        height: 6em;
+    }
+    .whatsapp__help h3{
+        font-size: 30px;
+    }
+ 
+}
+
+
+ /* ---- deposite section edit  */
+
+ .payment__deposit__section{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 95%;
+    height: 85%;
+ }
+ .upi__section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+     width: 70%;
+     height: 80%;
+    }
+    .upi__id{
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        width: 100%;
+ }
+ .bank__airtel{
+    margin-top: 1rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 70%;
+    border: 1px solid black;
+ }
+ .airtel__img{
+    text-align: center;
+ }
+ .airtel__img img{
+    width: 80%;
+ }
+ .bank__info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+ }
+ .bank__info span{
+    font-size: 17px;
+ }
+ .upi__app{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+       cursor: pointer;
+       border-radius: 1rem;
+       width: 180px;
+       height: 100%;
+       border: 1px solid black;
+ }
+ .upi__app img{
+   width: 60%;
+   height: 60%;
+
+ }
+ 
+ .qr__section{
+    cursor: pointer;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    width: 30%;
+    height: 80%;
+    background: var(--primary-back);
+ }
+ .qr__section h3{
+    text-align: center;
+    color: #fff;
+    font-size: 2rem;
+ }
+ .qr__section img{
+    width: 80%;
+ }
+ @media only screen and (max-width: 900px){
+
+ }

@@ -1,43 +1,125 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="{% static '/home_style.css' %}">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="{% static '/home_style.css' %}">
 </head>
+
 <body>
-    <div class="home__main">
-        <div class="nav__master">
-        <!-- home nav bar section start -->
-         <div class="home__nav nav-bar">
-            <div class="home__nav__img">
-                <img src="https://dzm0kbaskt4pv.cloudfront.net/v11/static/themes/diamondexch9.com/front/logo.png" alt="logo">
-            </div>
-            <div >
-            <ul class="menu_main">
-                <li class="menu__item"><a href="#">Home</a></li>
-                <li class="menu__item"><a href="#">Withdraw detail</a> </li>
-                <li class="menu__item"><a href="#">Ac. statment</a></li>
-                <li class="menu__item"><a href="#">Depo. statment</a></li>
-                <li class="menu__item"><a href="#">withdraw statment</a></li>
-                <li class="menu__item"><a href="#">Help request</a></li>
-            </ul>
+  <div class="home__main">
+    <div class="nav__master">
+      <!-- home nav bar section start -->
+      <div class="home__nav nav-bar">
+        <div class="home__nav__img">
+          <img src="https://dzm0kbaskt4pv.cloudfront.net/v11/static/themes/diamondexch9.com/front/logo.png" alt="logo">
         </div>
-    </div>
-    <div class="hamburger__main">
-    <div class="hamburger">
-
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
+        <div>
+          <ul class="menu_main">
+            <!-- <li class="menu__item"><a href="/home.html">Home</a></li> -->
+            <!-- <li class="menu__item"><a href="#">Withdraw detail</a> </li>
+            <li class="menu__item"><a href="#">Ac. statment</a></li> -->
+            <li class="menu__item"><a href="#">Depo. statment</a></li>
+            <li class="menu__item"><a href="#">withdraw statment</a></li>
+            <li class="menu__item"><a href="#">Help request</a></li>
+            <li class="menu__item"><a href="{% url 'logout' %}">LOG OUT <svg xmlns="http://www.w3.org/2000/svg"
+                  height="1.5em" viewBox="0 0 512 512">
+                  <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                  <path
+                    d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V256c0 17.7 14.3 32 32 32s32-14.3 32-32V32zM143.5 120.6c13.6-11.3 15.4-31.5 4.1-45.1s-31.5-15.4-45.1-4.1C49.7 115.4 16 181.8 16 256c0 132.5 107.5 240 240 240s240-107.5 240-240c0-74.2-33.8-140.6-86.6-184.6c-13.6-11.3-33.8-9.4-45.1 4.1s-9.4 33.8 4.1 45.1c38.9 32.3 63.5 81 63.5 135.4c0 97.2-78.8 176-176 176s-176-78.8-176-176c0-54.4 24.7-103.1 63.5-135.4z" />
+                </svg></a></li>
+          </ul>
+        </div>
       </div>
-    </div>
-    <!-- nav bar section end  -->
-</div>
-</div>
+      <div class="hamburger__main">
+        <div class="hamburger">
 
-<script src="{% static '/js_home.js' %}"></script>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+      </div>
+      <!-- nav bar section end  -->
+    </div>
+
+    <!-- home section start---------   -->
+
+    <div class="home__section__master">
+      <nav class="home__information-amount">
+
+        <div class="total-balance">
+          <div class="wallet__svg">
+            <svg xmlns="http://www.w3.org/2000/svg" height="2.3em" viewBox="0 0 512 512">
+              <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+              <path
+                d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V192c0-35.3-28.7-64-64-64H80c-8.8 0-16-7.2-16-16s7.2-16 16-16H448c17.7 0 32-14.3 32-32s-14.3-32-32-32H64zM416 272a32 32 0 1 1 0 64 32 32 0 1 1 0-64z" />
+            </svg>
+          </div>
+          <div class="amount">
+            <h3>TOTAL BALANCE</h3>
+            <h3>$ <span>{{balance}}</span></h3>
+          </div>
+        </div>
+
+
+        <div class="account__detail">
+          <svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 512 512">
+            <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+            <path
+              d="M399 384.2C376.9 345.8 335.4 320 288 320H224c-47.4 0-88.9 25.8-111 64.2c35.2 39.2 86.2 63.8 143 63.8s107.8-24.7 143-63.8zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm256 16a72 72 0 1 0 0-144 72 72 0 1 0 0 144z" />
+          </svg>
+          <h3>{{phone_number}}</h3>
+        </div>
+
+
+      </nav>
+      <div id="home" class="person__deposit-info">
+        <div class="username__id">
+          <input type="text" placeholder="Username-ID" value={{gameid}}>
+          <input type="text" placeholder="Password" value={{game_password}}>
+        </div>
+        <div class="amount__tranfer">
+          <div class="diamond__login__main">
+            <div class="diamond__login__img">
+              <img src="https://dzm0kbaskt4pv.cloudfront.net/v11/static/themes/diamondexch9.com/front/logo.png" alt="">
+            </div>
+            <div class="diamond__login__form">
+              <input type="text" placeholder="Username" value={{gameid}}>
+              <input type="text" placeholder="password" value={{game_password}}>
+              <button><span><a href="https://www.diamondexch9.com/" target="_blank">Login</a></span><svg
+                  xmlns="http://www.w3.org/2000/svg" height="1.25em" viewBox="0 0 512 512">
+                  <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                  <path
+                    d="M352 96l64 0c17.7 0 32 14.3 32 32l0 256c0 17.7-14.3 32-32 32l-64 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l64 0c53 0 96-43 96-96l0-256c0-53-43-96-96-96l-64 0c-17.7 0-32 14.3-32 32s14.3 32 32 32zm-9.4 182.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L242.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l210.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128z" />
+                </svg></button>
+              <p>This site is protected by reCAPTCHA and the Google privacy policy and terms of serves apply</p>
+              <a href="info@diamondexch.com">info@diamondexch.com</a>
+            </div>
+          </div>
+          <div class="amount__deposit-section">
+            <h3>Money Section</h3>
+            <button><a href="{% url 'deposit' %}">DEPOSIT</a></button>
+            <button><a href="{% url 'withdraw' %}">WITHDRAW</a></button>
+          </div>
+          <div class="whatsapp__help">
+            <svg xmlns="http://www.w3.org/2000/svg" height="5em" viewBox="0 0 448 512">
+              <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+              <path
+                d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
+            </svg>
+            <h3>WHATSAPP HELP</h3>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="{% static '/js_home.js' %}"></script>
 </body>
+
 </html>

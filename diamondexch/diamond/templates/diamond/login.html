@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Diamond~Home</title>
     <link rel="stylesheet" href="{% static '/style.css' %}">
     <script src="https://kit.fontawesome.com/9267f5f00e.js" crossorigin="anonymous"></script>
 
@@ -17,22 +17,22 @@
         <h1 class="h1">Login</h1>
         <form method="POST" action="">
             {% csrf_token %}
-            {{ form }}
-            <input class="register_input" type="text" placeholder="Phone Number">
-            <input class="register_input" type="password" placeholder="Password">
+            {{form}}
+            <!-- <input class="register_input" type="text" name="phone_number" placeholder="Phone Number">
+            <input class="register_input" type="password" name="password" placeholder="Password"> -->
+            {% for message in messages %}
+            <p id=message.id>{{message}}</p>
+            {% endfor %}
             <div class="recover">
                 <a href="#">Forget password ?</a>
             </div>
+            <input type="submit" />
         </form>
 
-        <a href="/otp.html"><button>Get OTP</button></a>
+        <!-- <a href="/otp.html"><button>Get OTP</button></a> -->
         <div class="member">
-            Not a member? <a href="/Index.html">Register Now</a>
+            Not a member? <a href="register">Register Now</a>
         </div>
-
-        {% for message in messages %}
-        <p id="messages">{{message}}</p>
-        {% endfor %}
     </div>
 
 

@@ -25,3 +25,64 @@ input.forEach((input, index1) => {
 
 //focus the first input which index is 0 window load
 window.addEventListener("load", () => input[0].focus());
+
+
+const form = document.getElementById('form');
+const phone = document.getElementById('phone-no');
+// const password = document.getElementById('password-user');
+ 
+
+form.addEventListener('submit', e => {
+  console.log(e.target);
+e.preventDefault();
+
+validateInputs();
+});
+
+const setError = (element, message) => {
+    const inputControl = element.parentElement;
+    const errorDisplay = inputControl.querySelector('.error');
+
+    errorDisplay.innerHTML = message;
+    inputControl.classList.add('error');
+    inputControl.classList.remove('sucess')
+}
+
+const setSuccess = element => {
+   const inputControl = element.parentElement;
+   const errorDisplay = inputControl.querySelector(".error");
+
+   errorDisplay.innerHTML = '';
+   inputControl.classList.add('success');
+   inputControl.classList.remove('error');
+};
+
+
+
+const validateInputs = () => {
+  const phoneValue = phone.value.trim();
+  // const passwordValue = password.value.trim();
+
+
+  
+  if(phoneValue === ""){
+    setError(phone, "(phone no. is required)");
+  }else if(phoneValue.length < 10){
+   setError(phone, '(10 digital reuired)');
+  }else if(phoneValue.length >=11){
+     setError(phone, "(10 digit phone no.)")
+  }else{
+    setSuccess(phone);
+  }
+
+
+  // if(passwordValue === ""){
+  //   setError(password, "(password is required)");
+  // }else if(passwordValue.length < 8){
+  //  setError(password, '(password rewuied 8 charecter)');
+  // }else{
+  //    setSuccess(password);
+  // }
+
+
+};

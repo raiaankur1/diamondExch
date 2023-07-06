@@ -43,14 +43,6 @@ body{
     border-radius: 1rem;
     background: #e4e4e4;
 }
-.success {
-    color: #09c372;
-}
-.error {
-    color: #ff3860;
-    font-size: 20px;
-}
-
 button{
     font-size: 1rem;
     font-weight: 600;
