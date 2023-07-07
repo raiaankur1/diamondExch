@@ -694,6 +694,13 @@ input::-webkit-inner-spin-button {
     border-bottom: 1px solid white;
     outline: none;
 }
+.payment__form__input input::placeholder{
+  color: #fff;
+}
+.payment__form__input label{
+    color: #fff;
+    margin-top: .5rem;
+}
 .payment__form button{
     width: 90%;
     background: var(--deposit);
@@ -830,10 +837,15 @@ input::-webkit-inner-spin-button {
     border-radius: 2rem;
     
 }
+
 .withdraw__main__form h3{
   text-align: center;
   color: #fff;
   font-size: 30px;
+}
+.withdraw__main__form label{
+    color: #fff;
+    font-weight: 500;
 }
 .withdraw__main__form form{
     display: flex;
@@ -851,6 +863,7 @@ input::-webkit-inner-spin-button {
  color: #fff;
  font-size: 20px;
 }
+
 .withdraw__main__form button{
     cursor: pointer;
     background: var(--deposit);
@@ -870,4 +883,13 @@ input::-webkit-inner-spin-button {
 }
 a{
     text-decoration: none;
+}
+.submit_withdraw{
+    background-color: var(--deposit) !important;
+    cursor: pointer;
+    border: none !important;
+    outline: none !important;
+    font-size: 30px !important;
+    font-weight: 600;
+
 }

@@ -20,12 +20,12 @@
         </div>
         <div>
           <ul class="menu_main">
-            <!-- <li class="menu__item"><a href="/home.html">Home</a></li> -->
+            <li class="menu__item"><a href="/home.html">Home</a></li>
             <!-- <li class="menu__item"><a href="#">Withdraw detail</a> </li>
             <li class="menu__item"><a href="#">Ac. statment</a></li> -->
             <li class="menu__item"><a href="{% url 'depositstatements' %}">Deposit Statement</a></li>
             <li class="menu__item"><a href="{% url 'withdrawstatements' %}">Withdraw Statement</a></li>
-            <li class="menu__item"><a href="#">Help Request</a></li>
+            <!-- <li class="menu__item"><a href="#">Help Request</a></li> -->
             <li class="menu__item"><a href="{% url 'logout' %}">LOG OUT <svg xmlns="http://www.w3.org/2000/svg"
                   height="1.5em" viewBox="0 0 512 512">
                   <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
@@ -90,7 +90,7 @@
             <div class="diamond__login__form">
               <input type="text" placeholder="Username" value={{gameid}}>
               <input type="text" placeholder="password" value={{game_password}}>
-              <button><span><a href="https://www.diamondexch9.com/" target="_blank">Login</a></span><svg
+              <button><span><a href="https://www.diamondexch9.com/" target="_blank" style="color: #fff;">Login</a></span><svg
                   xmlns="http://www.w3.org/2000/svg" height="1.25em" viewBox="0 0 512 512">
                   <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
                   <path

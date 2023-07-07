@@ -14,7 +14,7 @@
     <div class="nav__master">
       <!-- home nav bar section start -->
       <div class="home__nav nav-bar">
-        <div class="home_nav_img">
+        <div class="home__nav__img">
           <img src="https://dzm0kbaskt4pv.cloudfront.net/v11/static/themes/diamondexch9.com/front/logo.png" alt="logo">
         </div>
         <div>
@@ -44,7 +44,7 @@
       </div>
       <!-- nav bar section end  -->
     </div>
-    <div class="deposit_section_master">
+    <div class="deposit__section__master">
       <nav class="home__information-amount">
 
         <div class="total-balance">
@@ -73,8 +73,8 @@
 
 
       </nav>
-      <div class="withdraw_main_form">
-        <div class="form_main_withdraw">
+      <div class="withdraw__main__form">
+        <div class="form__main__withdraw">
           <h3>Withdraw Form</h3>
           <form method="POST" action="">
             {% csrf_token %}
@@ -83,7 +83,7 @@
             <input type="text" placeholder="UPI ID" name="upi">
             <input type="text" placeholder="Re-UPI ID" name="reupi">
             <!-- <input type="text" placeholder="Password" name="Password"> -->
-            <input type="submit" value="Submit">
+            <input class="submit_withdraw" type="submit" value="Submit">
           </form>
         </div>
       </div>

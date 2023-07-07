@@ -14,7 +14,7 @@
         <div class="nav__master">
             <!-- home nav bar section start -->
             <div class="home__nav nav-bar">
-                <div class="home_nav_img">
+                <div class="home__nav__img">
                     <img src="https://dzm0kbaskt4pv.cloudfront.net/v11/static/themes/diamondexch9.com/front/logo.png"
                         alt="logo">
                 </div>
@@ -25,7 +25,7 @@
                         <li class="menu__item"><a href="#">Ac. statment</a></li> -->
                         <li class="menu__item"><a href="{% url 'depositstatements' %}">Depo. statment</a></li>
                         <li class="menu__item"><a href="{% url 'withdrawstatements' %}">withdraw statment</a></li>
-                        <li class="menu__item"><a href="#">Help request</a></li>
+                        <!-- <li class="menu__item"><a href="#">Help request</a></li> -->
                         <li class="menu__item"><a href="{% url 'logout' %}"><span>LOG OUT</span><svg
                                     xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 0 512 512">
                                     <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
@@ -45,7 +45,7 @@
             </div>
             <!-- nav bar section end  -->
         </div>
-        <div class="deposit_section_master">
+        <div class="deposit__section__master">
             <nav class="home__information-amount">
 
                 <div class="total-balance">
@@ -74,7 +74,7 @@
 
 
             </nav>
-            <div class="payment_deposit_section" style=" display: flex; flex-direction: row;">
+            <div class="payment__deposit__section" style=" display: flex; flex-direction: row;">
                 <div class="upi__section" style="display: flex; flex-direction: column;">
                     <div class="upi__id">
                         <div class="upi__app">
@@ -101,11 +101,11 @@
                 </div>
                 <div class="qr__section">
                     <h3>QR PAYMENT</h3>
-                    <img src="{% static '/QR.jpeg' %}" alt="">
+                    <img src="{% static '/QR.jpeg' %}" alt="QR img">
                 </div>
                 <div class="payment__form">
                     <h3>Payment Form</h3>
-                    <form method="POST" class="payment_form_input" action="">
+                    <form method="POST" class="payment__form__input" action="">
                         {% csrf_token %}
                         <label for="deposit-amount">Deposit Request</label>
                         <input type="number" placeholder="AMOUNT" name="deposit_amount">
