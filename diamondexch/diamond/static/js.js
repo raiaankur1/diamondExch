@@ -2,26 +2,26 @@ const input = document.querySelectorAll(".main_form_input"),
 button = document.querySelector(".otp_button");
 
 //iterate iver all inouts
-input.forEach((input, index1) => {
-    input.addEventListener("keyup", () => {
+// input.forEach((input, index1) => {
+//     input.addEventListener("keyup", () => {
       //this code gets the current input element and stores it in the current Input variable 
       //this is codes gets the next sibling elemnt of the current input elemnt and stores it in the next
 
- const currentInput = input,
-  nextInput = input.nextElementSibling,
-  prevInput = input.previousElementSibling;
+//  const currentInput = input,
+//   nextInput = input.nextElementSibling,
+//   prevInput = input.previousElementSibling;
 
-  //if the value has more then one charater then clear it
-   if (currentInput.value.length > 1){
-    currentInput.value = "";
-    return;
-   }
-   if(nextInput && nextInput.hasAttribute("disabled") && currentInput.value !== ""){
-    nextInput.removeAttribute("disabled");
-    nextInput.focus();
-   }
-    });
-});
+//   //if the value has more then one charater then clear it
+//    if (currentInput.value.length > 1){
+//     currentInput.value = "";
+//     return;
+//    }
+//    if(nextInput && nextInput.hasAttribute("disabled") && currentInput.value !== ""){
+//     nextInput.removeAttribute("disabled");
+//     nextInput.focus();
+//    }
+//     });
+// });
 
 //focus the first input which index is 0 window load
 window.addEventListener("load", () => input[0].focus());
@@ -34,9 +34,9 @@ const phone = document.getElementById('phone-no');
 
 form.addEventListener('submit', e => {
   console.log(e.target);
-e.preventDefault();
+// e.preventDefault();
 
-validateInputs();
+// validateInputs();
 });
 
 const setError = (element, message) => {
@@ -64,16 +64,32 @@ const validateInputs = () => {
   // const passwordValue = password.value.trim();
 
 
+  const regex = /^(\+91[\-\s]?)?[0]?(91)?[789]\d{9}$/gm;
+
+  // const str = `+91-9123654780`;
+  let m;
+
+  // while ((m = regex.exec(phoneValue)) !== null) {
+  //     // This is necessary to avoid infinite loops with zero-width matches
+  //     if (m.index === regex.lastIndex) {
+  //         regex.lastIndex++;
+  //     }
+      
+  //     // The result can be accessed through the `m`-variable.
+  // }
   
-  if(phoneValue === ""){
-    setError(phone, "(phone no. is required)");
-  }else if(phoneValue.length < 10){
-   setError(phone, '(10 digital reuired)');
-  }else if(phoneValue.length >=11){
-     setError(phone, "(10 digit phone no.)")
-  }else{
-    setSuccess(phone);
-  }
+
+  // if(phoneValue === ""){
+  //   setError(phone, "(Empty Input)");
+  // }else if(phoneValue.length < 10){
+  //  setError(phone, "(Input Length less than 10)");
+  // }else if(m[0] != phoneValue) {
+  //   setError(phone, "(Invalid Phone Number)");
+  // }
+  // else {
+  //   setSuccess(phone);
+  // }
+  // setSuccess(phone);
 
 
   // if(passwordValue === ""){

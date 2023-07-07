@@ -1,12 +1,16 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
 from phonenumber_field.modelfields import PhoneNumberField
+from django.core.validators import RegexValidator
 from datetime import datetime
 # from django.contrib.auth.models import User as DjangoUser
 # Create your models here.
 
 
 # phone_validator = RegexValidator(r"^(\+?\d{0,4})?\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{4}\)?)?$", "The phone number provided is invalid")
+phone_validator = RegexValidator(
+    r"^(\+91[\-\s]?)?[0]?(91)?[789]\d{9}$", "Invalid Phone Number")
+
 
 class CustomUserManager(BaseUserManager):
     """
@@ -38,7 +42,7 @@ class CustomUserManager(BaseUserManager):
 
 
 class User(AbstractBaseUser, PermissionsMixin):
-    phone_number = PhoneNumberField(unique=True)
+    phone_number = PhoneNumberField(validators=[phone_validator], unique=True)
     balance = models.IntegerField(default=0, null=False)
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
@@ -92,3 +96,36 @@ class Gameid(models.Model):
 
     def __str__(self):
         return f"{self.username}"
+
+
+STATUS_CHOICES = (
+    ("APPROVED", "APPROVED"),
+    ("IN PROCESS", "IN PROCESS"),
+    ("REJECTED", "REJECTED"),
+)
+
+
+class Depositstatement(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    amount = models.IntegerField(default=0)
+    utrno = models.CharField(default="", max_length=100)
+    created_at = models.DateTimeField(
+        auto_now_add=True)
+    status = models.CharField(
+        max_length=20,
+        choices=STATUS_CHOICES,
+        default="IN PROCESS"
+    )
+
+
+class Withdrawstatement(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    amount = models.IntegerField(default=0)
+    upiid = models.CharField(default="", max_length=25)
+    created_at = models.DateTimeField(
+        auto_now_add=True)
+    status = models.CharField(
+        max_length=20,
+        choices=STATUS_CHOICES,
+        default="IN PROCESS"
+    )

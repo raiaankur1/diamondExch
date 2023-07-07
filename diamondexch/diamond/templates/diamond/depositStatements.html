@@ -1,0 +1,159 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static '/home_style.css' %}">
+</head>
+
+<body>
+    <div class="home__main">
+        <div class="nav__master">
+            <!-- home nav bar section start -->
+            <div class="home__nav nav-bar">
+                <div class="home__nav__img">
+                    <img src="https://dzm0kbaskt4pv.cloudfront.net/v11/static/themes/diamondexch9.com/front/logo.png"
+                        alt="logo">
+                </div>
+                <div>
+                    <ul class="menu_main">
+                        <li class="menu__item"><a href="{% url 'home' %}">Home</a></li>
+                        <!-- <li class="menu__item"><a href="#">Withdraw detail</a> </li> -->
+                        <!-- <li class="menu__item"><a href="#">Ac. statment</a></li> -->
+                        <li class="menu__item"><a href="{% url 'depositstatements' %}">Depo. statment</a></li>
+                        <li class="menu__item"><a href="{% url 'withdrawstatements' %}">withdraw statment</a></li>
+                        <!-- <li class="menu__item"><a href="#">Help request</a></li> -->
+                        <li class="menu__item"><a href="{% url 'logout' %}"><span>LOG OUT</span><svg
+                                    xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 0 512 512">
+                                    <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                    <path
+                                        d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V256c0 17.7 14.3 32 32 32s32-14.3 32-32V32zM143.5 120.6c13.6-11.3 15.4-31.5 4.1-45.1s-31.5-15.4-45.1-4.1C49.7 115.4 16 181.8 16 256c0 132.5 107.5 240 240 240s240-107.5 240-240c0-74.2-33.8-140.6-86.6-184.6c-13.6-11.3-33.8-9.4-45.1 4.1s-9.4 33.8 4.1 45.1c38.9 32.3 63.5 81 63.5 135.4c0 97.2-78.8 176-176 176s-176-78.8-176-176c0-54.4 24.7-103.1 63.5-135.4z" />
+                                </svg></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="hamburger__main">
+                <div class="hamburger">
+
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+            </div>
+            <!-- nav bar section end  -->
+        </div>
+        <div class="deposit__section__master">
+            <nav class="home__information-amount">
+
+                <div class="total-balance">
+                    <div class="wallet__svg">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="2.3em" viewBox="0 0 512 512">
+                            <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                            <path
+                                d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V192c0-35.3-28.7-64-64-64H80c-8.8 0-16-7.2-16-16s7.2-16 16-16H448c17.7 0 32-14.3 32-32s-14.3-32-32-32H64zM416 272a32 32 0 1 1 0 64 32 32 0 1 1 0-64z" />
+                        </svg>
+                    </div>
+                    <div class="amount">
+                        <h3>TOTAL BALANCE</h3>
+                        <h3>$ <span>{{balance}}</span></h3>
+                    </div>
+                </div>
+
+
+                <div class="account__detail">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 512 512">
+                        <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                        <path
+                            d="M399 384.2C376.9 345.8 335.4 320 288 320H224c-47.4 0-88.9 25.8-111 64.2c35.2 39.2 86.2 63.8 143 63.8s107.8-24.7 143-63.8zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm256 16a72 72 0 1 0 0-144 72 72 0 1 0 0 144z" />
+                    </svg>
+                    <h3>{{phone_number}}</h3>
+                </div>
+
+
+            </nav>
+
+            <div class="deposit__statment__section">
+                <div class="deposit__heading">
+                    <h3>Deposit Statment</h3>
+                </div>
+                <div class="deposit__recipt__master">
+
+
+                    <!-- here you make loop for this div  -->
+
+                    {% if deposit_statements|length > 0 %}
+                    {% for ds in deposit_statements %}
+                    <div class="deposit__list">
+                        <div class="deposit__account">
+                            <div class="deposit__amount__img">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 512 512">
+                                    <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                    <path
+                                        d="M399 384.2C376.9 345.8 335.4 320 288 320H224c-47.4 0-88.9 25.8-111 64.2c35.2 39.2 86.2 63.8 143 63.8s107.8-24.7 143-63.8zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm256 16a72 72 0 1 0 0-144 72 72 0 1 0 0 144z" />
+                                </svg>
+                            </div>
+                            <div class="deposit__no__status">
+                                <p>{{ ds.user.phone_number }}</p>
+                                <p class="deposit__status">Status: <span>Deposit</span></p>
+                            </div>
+
+                        </div>
+                        <div class="deposit__amount">
+                            <h3>Deposit Amount</h3>
+                            <h3>$ <span>{{ds.amount}}</span></h3>
+                        </div>
+                        <div class="deposit__utr">
+                            <span>UTR no.</span>
+                            <span>{{ ds.utrno }}</span>
+                        </div>
+                        <div class="deposit__request__button">
+                            <button>{{ ds.status }}</button>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    {% else %}
+                    {% for i in '012'|make_list %}
+                    <div class="deposit__list">
+                        <div class="deposit__account">
+                            <div class="deposit__amount__img">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 512 512">
+                                    <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                    <path
+                                        d="M399 384.2C376.9 345.8 335.4 320 288 320H224c-47.4 0-88.9 25.8-111 64.2c35.2 39.2 86.2 63.8 143 63.8s107.8-24.7 143-63.8zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm256 16a72 72 0 1 0 0-144 72 72 0 1 0 0 144z" />
+                                </svg>
+                            </div>
+                            <div class="deposit__no__status">
+                                <p>{{ phone_number }}</p>
+                                <p class="deposit__status">Status: <span>Deposit</span></p>
+                            </div>
+
+                        </div>
+                        <div class="deposit__amount">
+                            <h3>Deposit Amount</h3>
+                            <h3> <span>---</span></h3>
+                        </div>
+                        <div class="deposit__utr">
+                            <span>UTR no.</span>
+                            <span>---</span>
+                        </div>
+                        <div class="deposit__request__button">
+                            <button>---</button>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+                    <!-- loop div end  -->
+
+
+                </div>
+            </div>
+
+        </div>
+
+        <script src="{% static '/js_home.js' %}"></script>
+</body>
+
+</html>

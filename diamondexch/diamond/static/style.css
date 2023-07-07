@@ -110,7 +110,11 @@ input:focus{
     text-decoration: none;
     color: #464654;
 }
-
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 /* OTP-------------------- */
 
 .input-field{

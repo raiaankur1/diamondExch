@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="{% static '/style.css' %}">
+  <script src="https://kit.fontawesome.com/9267f5f00e.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div class="wrapper">
+    <h1 class="h1">Sign Up</h1>
+    <form id="form" method="POST" action="">
+      {% csrf_token %}
+      <div class="phone__main">
+        <label for="phone-no">Phone Number</label>
+        <input style="margin: 1rem 0 1rem 0;" id="phone-no" name="phone-no" class="register_input" type="text"
+          placeholder="Phone Number" value={{ phone_number }} disabled>
+        <div class="error"></div>
+      </div>
+      <div class="otp__main">
+        <div class="Main_form">
+          <label for="otp__input">OTP</label>
+          <div id="otp__input" class="input-field">
+            <input class="main_form_input" type="number" name="otp1">
+            <input class="main_form_input" type="number" name="otp2">
+            <input class="main_form_input" type="number" name="otp3">
+            <input class="main_form_input" type="number" name="otp4">
+            <input class="main_form_input" type="number" name="otp5">
+            <input class="main_form_input" type="number" name="otp6">
+
+          </div>
+          <div class="terms">
+            <input type="checkbox" id="checkbox">
+            <label for="checkbox">I agree to these <a href="#">Terms & conditions</a></label>
+          </div>
+          <div class="terms over">
+            <input type="checkbox" id="checkbox">
+            <label for="checkbox">Over 18+</label>
+          </div>
+          <!-- <button type="submit" class="otp_button"> -->
+          <input type="submit" value="Verify OTP">
+          <!-- </button> -->
+        </div>
+        {% for message in messages %}
+        <p id=message.id>{{message}}</p>
+        {% endfor %}
+        <!-- <a href="#"><button type="submit" class="otp_button">Verify OTP</button></a> -->
+      </div>
+      <div class="member">
+        Already a member? <a href="{% url 'login' %}">Login here</a>
+      </div>
+    </form>
+  </div>
+
+  <script src="{% static '/js.js' %}"></script>
+</body>
+
+</html>
