@@ -107,6 +107,12 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# Twilio Credentials
+
+ACCOUNT_SID = "ACf4d8ee728a88e9f02f8cdd0e4c2ffb5e"
+AUTH_TOKEN = "1ac54333561e38bc2431b4373e2d4710"
+COUNTRY_CODE = '+91'
+TWILIO_PHONE_NUMBER = '+15734961412'
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/

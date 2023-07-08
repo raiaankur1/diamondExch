@@ -21,7 +21,8 @@
             <!-- <input class="register_input" type="text" name="phone_number" placeholder="Phone Number">
             <input class="register_input" type="password" name="password" placeholder="Password"> -->
             {% for message in messages %}
-            <p id=message.id>{{message}}</p>
+            <p {% if message.tags %} class="{{ message.tags }}" {% endif %}
+                style="font-size: 0.8rem; font-weight: bold;">{{message}}</p>
             {% endfor %}
             <div class="recover">
                 <a href="#">Forget password ?</a>

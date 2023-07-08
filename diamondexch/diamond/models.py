@@ -3,7 +3,7 @@ from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseU
 from phonenumber_field.modelfields import PhoneNumberField
 from django.core.validators import RegexValidator
 from datetime import datetime
-# from django.contrib.auth.models import User as DjangoUser
+import uuid
 # Create your models here.
 
 
@@ -129,3 +129,9 @@ class Withdrawstatement(models.Model):
         choices=STATUS_CHOICES,
         default="IN PROCESS"
     )
+
+
+class Verifyotp(models.Model):
+    phone_number = PhoneNumberField(validators=[phone_validator], unique=True)
+    otp = models.CharField(max_length=6)
+    uid = models.CharField(default=f'{uuid.uuid4}', max_length=200)

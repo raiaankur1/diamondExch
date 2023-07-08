@@ -7,7 +7,7 @@ from django.forms import inlineformset_factory
 from datetime import datetime, date, timedelta
 
 import os
-from twilio.rest import Client
+from .twilioservice import MessageHandler
 
 from .models import *
 from .forms import *
@@ -21,129 +21,122 @@ def signup1(request):
         return redirect('home')
     if request.method == "POST":
         phone_number = request.POST["phone-no"]
-
-        # Set environment variables for your credentials
-        # Read more at http://twil.io/secure
-        account_sid = "ACf4d8ee728a88e9f02f8cdd0e4c2ffb5e"
-        auth_token = "1ac54333561e38bc2431b4373e2d4710"
-        verify_sid = "VA9427e1d557678667c828912726495b1a"
-        verified_number = phone_number
-        print(verified_number)
-        client = Client(account_sid, auth_token)
-        verification = client.verify.v2.services(verify_sid) \
-            .verifications \
-            .create(to=verified_number, channel="sms")
-        print(verification.status)
-
-        request.session["phone_number"] = phone_number
-        return redirect('signup2')
+        phone_number = phone_number[-10:]
+        try:
+            get_user_model().objects.get(phone_number=phone_number)
+            messages.error(
+                request, f"An account is already registered with this phone number {phone_number} !"
+            )
+            return redirect('signup1')
+        except get_user_model().DoesNotExist:
+            otp = random.randint(100000, 999999)
+            verifyobj = Verifyotp.objects.create(
+                phone_number=phone_number, otp=f'{otp}')
+            messagehandler = MessageHandler(
+                phone_number, otp).send_otp_via_message()
+            red = redirect(f'verify/{verifyobj.uid}/')
+            red.set_cookie("can_otp_enter", True, max_age=300)
+            return red
     return render(request, "diamond/signup1.html", {})
 
 
-def signup2(request):
+def signup2(request, uid):
     if request.user.is_authenticated:
         return redirect('home')
+    verifyobj = Verifyotp.objects.get(uid=uid)
     if request.method == "POST":
-        phone_number = request.POST.get("phone-no")
-        otp_code = request.POST.get("otp1") + request.POST.get("otp2") + request.POST.get("otp3") + \
-            request.POST.get("otp4") + request.POST.get("otp5") + \
-            request.POST.get("otp6")
-
-        account_sid = "ACf4d8ee728a88e9f02f8cdd0e4c2ffb5e"
-        auth_token = "1ac54333561e38bc2431b4373e2d4710"
-        verify_sid = "VA9427e1d557678667c828912726495b1a"
-        verified_number = phone_number
-
-        client = Client(account_sid, auth_token)
-        verification_check = client.verify.v2.services(verify_sid) \
-            .verification_checks \
-            .create(to=verified_number, code=otp_code)
-        print(verification_check.status)
-
-        return redirect('signup3')
-    try:
-        phone_number = request.session["phone_number"]
-    except:
-        return redirect('signup1')
+        # phone_number = request.POST.get("phone-no")
+        if request.COOKIES.get('can_otp_enter') != None:
+            otp_code = request.POST.get("otp1") + request.POST.get("otp2") + \
+                request.POST.get("otp3") + request.POST.get("otp4") + \
+                request.POST.get("otp5") + request.POST.get("otp6")
+            if (verifyobj.otp == otp_code):
+                messages.success(
+                    request, f"{verifyobj.phone_number} is verified!"
+                )
+                return redirect(f'register/{verifyobj.uid}/')
+            messages.error(
+                request, "OTP doesn't match!"
+            )
+            return redirect(f'verify/{verifyobj.uid}/')
+        messages.error(
+            request, "OTP expired! You took longer than 5 minutes!"
+        )
+        return redirect("signup1")
+    # return render(request,"otp.html",{'id':uid})
+    phone_number = verifyobj.phone_number
     content = {
         "phone_number": phone_number,
     }
     return render(request, "diamond/signup2.html", content)
 
 
-def signup3(request):
+def signup3(request, uid):
     # form = UserCreationForm()
     if request.user.is_authenticated:
         return redirect('home')
-    else:
-        if request.method == "POST":
-            # print(form.data)
-            # form = UserCreationForm(request.POST)
-            # print(form.errors)
-            # if form.is_valid():
-            print("valid form")
-            # process the data in form.cleaned_data as required
-            # cd = form.cleaned_data
-            phone_number = request.POST.get('phone_number')
-            try:
-                get_user_model().objects.get(phone_number=phone_number)
-                messages.error(
-                    request, 'An account is already registered with this phone number'
-                )
-                return redirect('login')
-            except get_user_model().DoesNotExist:
-                # phone_number = cd.get('phone_number')
-                password = request.POST.get('password1')
-                Cpassword = request.POST.get('password2')
-
-                freeGameids = Gameid.objects.filter(user=None)
-                freegid = freeGameids[0]
-                new_user = get_user_model().objects.create_user(
-                    phone_number=phone_number, password=password)
-                new_user.gameid = freegid
-                freegid.user = new_user
-                new_user.save()
-                freegid.save()
-
-                messages.success(
-                    request, "Account created for " + f"{phone_number}"
-                )
-                print("account created")
-                return redirect("login")
-                # if (len(get_user_model().objects.filter(phone_number=request.POST.get("phone_number"))) != 0):
-                #     messages.error(
-                #         request, 'An account is already registered with this phone number'
-                #     )
-                #     return redirect('login')
-
-                # user = form.save()
-                # phone_number = form.cleaned_data.get('phone_number')
-                # password = form.cleaned_data.get('password')
-                # freeGameids = Gameid.objects.filter(user=None)
-                # freegid = freeGameids[0]
-                # new_user = User(phone_number=phone_number, password=password)
-                # new_user.gameid = freegid
-                # freegid.user = new_user
-                # new_user.save()
-                # freegid.save()
-
-                # messages.success(
-                #     request, "Account created for " + phone_number
-                # )
-                # return redirect("login")
-            # else:
-            #     print("invalid form")
-            #     return redirect("register")
-
-        # to handle GET method
+    verifyobj = Verifyotp.objects.get(uid=uid)
+    phone_number = verifyobj.phone_number
+    if request.method == "POST":
         try:
-            phone_number = request.session["phone_number"]
-        except:
-            return redirect('signup1')
-        content = {
-            "phone_number": phone_number,
-        }
-        return render(request, "diamond/Index.html", content)
+            get_user_model().objects.get(phone_number=phone_number)
+            messages.error(
+                request, f"An account is already registered with this phone number {phone_number}!"
+            )
+            return redirect('login')
+        except get_user_model().DoesNotExist:
+            # phone_number = cd.get('phone_number')
+            password = request.POST.get('password1')
+            Cpassword = request.POST.get('password2')
+
+            if password != Cpassword:
+                messages.error(
+                    request, f"Confirm Password does not match with Password!"
+                )
+                return redirect(f'register/{verifyobj.uid}/')
+            freeGameids = Gameid.objects.filter(user=None)
+            freegid = freeGameids[0]
+            new_user = get_user_model().objects.create_user(
+                phone_number=phone_number, password=password)
+            new_user.gameid = freegid
+            freegid.user = new_user
+            new_user.save()
+            freegid.save()
+
+            messages.success(
+                request, "Account created for " + f"{phone_number}"
+            )
+            return redirect("login")
+            # if (len(get_user_model().objects.filter(phone_number=request.POST.get("phone_number"))) != 0):
+            #     messages.error(
+            #         request, 'An account is already registered with this phone number'
+            #     )
+            #     return redirect('login')
+
+            # user = form.save()
+            # phone_number = form.cleaned_data.get('phone_number')
+            # password = form.cleaned_data.get('password')
+            # freeGameids = Gameid.objects.filter(user=None)
+            # freegid = freeGameids[0]
+            # new_user = User(phone_number=phone_number, password=password)
+            # new_user.gameid = freegid
+            # freegid.user = new_user
+            # new_user.save()
+            # freegid.save()
+
+            # messages.success(
+            #     request, "Account created for " + phone_number
+            # )
+            # return redirect("login")
+        # else:
+        #     print("invalid form")
+        #     return redirect("register")
+
+    # to handle GET method
+    content = {
+        "phone_number": phone_number,
+    }
+    return render(request, "diamond/Index.html", content)
 
 
 class UserLoginView(View):
@@ -182,7 +175,8 @@ class UserLoginView(View):
             else:
                 print('not logged in')
                 messages.error(
-                    request, 'Your phone number or password is incorrect!', 'danger')
+                    request, 'Your Phone number or Password is Incorrect!', 'danger')
+                return redirect('login')
         return render(request, self.template_name, {'form': form})
 
 
