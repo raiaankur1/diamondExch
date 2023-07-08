@@ -16,12 +16,20 @@ import random
 from .backends import PhoneUsernameAuthenticationBackend as EoP
 
 
+def index(request):
+    return render(request, "diamond/landing-page.html", {})
+
+
+def termsNcondns(request):
+    return render(request, "diamond/termsNCondns.html", {})
+
+
 def signup1(request):
     if request.user.is_authenticated:
         return redirect('home')
     if request.method == "POST":
         phone_number = request.POST["phone-no"]
-        phone_number = phone_number[-10:]
+        verify_number = phone_number[-10:]
         try:
             get_user_model().objects.get(phone_number=phone_number)
             messages.error(
@@ -30,11 +38,13 @@ def signup1(request):
             return redirect('signup1')
         except get_user_model().DoesNotExist:
             otp = random.randint(100000, 999999)
+            if Verifyotp.objects.filter(phone_number=phone_number).exists:
+                Verifyotp.objects.get(phone_number=phone_number).delete()
             verifyobj = Verifyotp.objects.create(
                 phone_number=phone_number, otp=f'{otp}')
             messagehandler = MessageHandler(
-                phone_number, otp).send_otp_via_message()
-            red = redirect(f'verify/{verifyobj.uid}/')
+                verify_number, otp).send_otp_via_message()
+            red = redirect('signup2', uid=verifyobj.uid)
             red.set_cookie("can_otp_enter", True, max_age=300)
             return red
     return render(request, "diamond/signup1.html", {})
@@ -54,11 +64,11 @@ def signup2(request, uid):
                 messages.success(
                     request, f"{verifyobj.phone_number} is verified!"
                 )
-                return redirect(f'register/{verifyobj.uid}/')
+                return redirect('signup3', uid=verifyobj.uid)
             messages.error(
                 request, "OTP doesn't match!"
             )
-            return redirect(f'verify/{verifyobj.uid}/')
+            return redirect('signup2', uid=verifyobj.uid)
         messages.error(
             request, "OTP expired! You took longer than 5 minutes!"
         )
@@ -93,7 +103,7 @@ def signup3(request, uid):
                 messages.error(
                     request, f"Confirm Password does not match with Password!"
                 )
-                return redirect(f'register/{verifyobj.uid}/')
+                return redirect('signup3', uid=verifyobj.uid)
             freeGameids = Gameid.objects.filter(user=None)
             freegid = freeGameids[0]
             new_user = get_user_model().objects.create_user(
@@ -136,7 +146,7 @@ def signup3(request, uid):
     content = {
         "phone_number": phone_number,
     }
-    return render(request, "diamond/Index.html", content)
+    return render(request, "diamond/signup3.html", content)
 
 
 class UserLoginView(View):
@@ -215,10 +225,6 @@ def logout_user(request):
         request, "You have been logged out!"
     )
     return redirect('login')
-
-
-def index(request):
-    return render(request, "diamond/Index.html", {})
 
 
 @login_required(login_url='login')

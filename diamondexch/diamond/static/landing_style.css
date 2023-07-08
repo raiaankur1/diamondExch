@@ -1,0 +1,196 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Roboto:wght@400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+:root {
+  --primary: #0383c4;
+  --deposit: #74c16f;
+  --withdraw: #647fea;
+  --password: #ef8c19;
+  --whatsapp: #4bc658;
+  --primary-back: linear-gradient(var(--primary), #034c70);
+}
+
+.landing_nav {
+  display: flex;
+  width: 100vw;
+  height: 12vh;
+  background: var(--primary);
+}
+.land_logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+}
+.land_menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 50%;
+}
+.land_menu a {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 2rem;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  height: 60%;
+  width: 20%;
+  font-weight: 600;
+  font-size: 20px;
+  background: var(--deposit);
+}
+
+@media only screen and (max-width: 900px) {
+  .landing_nav {
+    flex-direction: column;
+    height: fit-content;
+  }
+
+  .land_logo {
+    height: 10vh;
+    width: 100%;
+  }
+  .land_logo img {
+    height: 90%;
+  }
+  .land_menu {
+    height: 10vh;
+    width: 100%;
+  }
+  .land_menu a {
+    width: 40%;
+  }
+  .landing_main {
+    padding: 0 0.1rem 0 0.1rem !important;
+  }
+  .landing_main section {
+    margin-top: 2rem;
+    background: var(--primary);
+    height: 140px !important;
+    width: 140px !important;
+  }
+  .game_name p {
+    text-align: center;
+    color: #fff;
+    font-size: 15px !important;
+  }
+}
+
+.landing_main {
+  padding: 0 2rem 0 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  height: fit-content;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+}
+.landing_main section {
+  margin-top: 2rem;
+  background: var(--primary);
+  height: 250px;
+  width: 250px;
+}
+.game_img {
+  height: 80%;
+  width: 100%;
+  background: var(--password);
+}
+.game_name p {
+  text-align: center;
+  color: #fff;
+}
+.game_img img {
+  width: 100%;
+  height: 100%;
+}
+
+footer {
+  margin-top: 1rem;
+  width: 100%;
+  height: 40vh;
+  background: var(--primary);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.footer_main {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.footer_content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  flex-direction: column;
+}
+.footer_content h2 {
+  width: 60%;
+  color: #fff;
+  border-bottom: 1px solid #fff;
+}
+.footer_content ul {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 1rem;
+  width: 60%;
+}
+.footer_content ul li a {
+  text-decoration: none;
+  color: #fff;
+  list-style: none;
+  cursor: pointer;
+}
+.footer_content ul li {
+  list-style: none;
+}
+.footer_img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+}
+.footer_licence {
+  color: #fff;
+}
+@media only screen and (max-width: 900px) {
+  footer {
+    height: fit-content;
+    gap: 3rem;
+  }
+  .footer_main {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .footer_content {
+    width: 100%;
+  }
+  .footer_img {
+    width: 100%;
+  }
+  .footer_content h2 {
+    width: 90%;
+    color: #fff;
+    border-bottom: 1px solid #fff;
+  }
+  .footer_content ul {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 1rem;
+    width: 90%;
+  }
+}

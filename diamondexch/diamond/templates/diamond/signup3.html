@@ -29,7 +29,7 @@
           <input type="password" name="password2" placeholder="Confirm Password">
           <div class="terms">
             <input type="checkbox" id="checkbox">
-            <label for="checkbox">I agree to these <a href="#">Terms & conditions</a></label>
+            <label for="checkbox">I agree to these <a href="{% url 'tncs' %}">Terms & conditions</a></label>
           </div>
           <div class="terms over">
             <input type="checkbox" id="checkbox">
@@ -40,8 +40,8 @@
           <!-- </button> -->
         </div>
         {% for message in messages %}
-        <p id=message.id>{{message}}</p>
-        {% endfor %}
+        <p {% if message.tags %} class="{{ message.tags }}" {% endif %} style="font-size: 0.8rem; font-weight: bold;">
+          {{message}}</p> {% endfor %}
         <!-- <a href="#"><button type="submit" class="otp_button">Verify OTP</button></a> -->
       </div>
       <div class="member">
