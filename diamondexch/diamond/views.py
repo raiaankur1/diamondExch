@@ -38,8 +38,11 @@ def signup1(request):
             return redirect('signup1')
         except get_user_model().DoesNotExist:
             otp = random.randint(100000, 999999)
-            if Verifyotp.objects.filter(phone_number=phone_number).exists:
+            try:
+                # Verifyotp.objects.filter(phone_number=phone_number).exists:
                 Verifyotp.objects.get(phone_number=phone_number).delete()
+            except Verifyotp.DoesNotExist:
+                pass
             verifyobj = Verifyotp.objects.create(
                 phone_number=phone_number, otp=f'{otp}')
             messagehandler = MessageHandler(
@@ -105,13 +108,14 @@ def signup3(request, uid):
                 )
                 return redirect('signup3', uid=verifyobj.uid)
             freeGameids = Gameid.objects.filter(user=None)
-            freegid = freeGameids[0]
             new_user = get_user_model().objects.create_user(
                 phone_number=phone_number, password=password)
-            new_user.gameid = freegid
-            freegid.user = new_user
+            if len(freeGameids) > 0:
+                freegid = freeGameids[0]
+                new_user.gameid = freegid
+                freegid.user = new_user
+                freegid.save()
             new_user.save()
-            freegid.save()
 
             messages.success(
                 request, "Account created for " + f"{phone_number}"

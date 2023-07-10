@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-j+oj4+2nnaz^kmzbl4s8xe0y1hr@sy=xphr7^7vthy(cal4a*%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['www.thediamondexch.club','127.0.0.1','thediamondexch.club']
+ALLOWED_HOSTS = ['www.thediamondexch.club', '127.0.0.1', 'thediamondexch.club']
 
 
 # Application definition
@@ -110,7 +110,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Twilio Credentials
 
 ACCOUNT_SID = "ACf4d8ee728a88e9f02f8cdd0e4c2ffb5e"
-AUTH_TOKEN = "7d5958f1f413b874d22465b156f5cc56"
+AUTH_TOKEN = "c9af2ac133829e0b5aa8cdf011edadd9"
 COUNTRY_CODE = '+91'
 TWILIO_PHONE_NUMBER = '+15734961412'
 
