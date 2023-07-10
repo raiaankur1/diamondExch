@@ -14,6 +14,7 @@ class DiamondAdmin(admin.ModelAdmin):
 admin.site.register(models.Gameid, DiamondAdmin)
 admin.site.register(models.Depositstatement, DiamondAdmin)
 admin.site.register(models.Withdrawstatement, DiamondAdmin)
+admin.site.register(models.Verifyotp, DiamondAdmin)
 
 
 class UserAdmin(BaseUserAdmin):
