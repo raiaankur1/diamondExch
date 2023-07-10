@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-j+oj4+2nnaz^kmzbl4s8xe0y1hr@sy=xphr7^7vthy(cal4a*%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['thediamondexch.club','127.0.0.1']
 
 
 # Application definition
@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'diamondexch.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'mbdb/db.sqlite3',
+        'NAME': BASE_DIR / 'diamonddb/db.sqlite3',
     }
 }
 
