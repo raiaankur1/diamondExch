@@ -14,11 +14,14 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='user',
             name='created',
-            field=models.DateTimeField(default=datetime.datetime(2023, 7, 11, 1, 22, 17, 772797)),
+            field=models.DateTimeField(
+                default=datetime.datetime(2023, 7, 11, 1, 22, 17, 772797)),
         ),
         migrations.AlterField(
             model_name='verifyotp',
             name='uid',
-            field=models.CharField(default='<function uuid4 at 0x0000019F3B32A160>', max_length=200),
+            field=models.CharField(
+                default='<function uuid4 at 0x0000019F3B32A160>', max_length=200),
         ),
     ]
+#

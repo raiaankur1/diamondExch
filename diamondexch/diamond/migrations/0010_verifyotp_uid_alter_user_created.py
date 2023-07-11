@@ -4,6 +4,8 @@ import datetime
 from django.db import migrations, models
 import uuid
 
+#
+
 
 class Migration(migrations.Migration):
 
@@ -20,6 +22,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='user',
             name='created',
-            field=models.DateTimeField(default=datetime.datetime(2023, 7, 12, 0, 3, 2, 802903)),
+            field=models.DateTimeField(
+                default=datetime.datetime(2023, 7, 12, 0, 3, 2, 802903)),
         ),
     ]
