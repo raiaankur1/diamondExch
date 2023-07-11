@@ -1,5 +1,6 @@
 from django.conf import settings
 from twilio.rest import Client
+# from twilio.http import j
 
 
 class MessageHandler:
@@ -11,6 +12,8 @@ class MessageHandler:
         self.otp = otp
 
     def send_otp_via_message(self):
-        client = Client(settings.ACCOUNT_SID, settings.AUTH_TOKEN)
+
+        client = Client(settings.API_KEY_SID,
+                        settings.API_SECRET, settings.ACCOUNT_SID)
         message = client.messages.create(
             body=f"Your otp is:{self.otp}", from_=f"{settings.TWILIO_PHONE_NUMBER}", to=f"{settings.COUNTRY_CODE}{self.phone_number}")

@@ -134,4 +134,5 @@ class Withdrawstatement(models.Model):
 class Verifyotp(models.Model):
     phone_number = PhoneNumberField(validators=[phone_validator], unique=True)
     otp = models.CharField(max_length=6)
-    uid = models.CharField(default=f'{uuid.uuid4}', max_length=200)
+    uid = models.UUIDField(
+        unique=True, default=uuid.uuid4, max_length=200)
