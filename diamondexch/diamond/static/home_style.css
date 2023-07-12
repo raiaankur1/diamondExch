@@ -200,6 +200,24 @@
   height: 3.5rem;
   border-top-right-radius: 2rem;
 }
+.deposit_payment__section__master {
+  height: 85vh;
+  width: 65%;
+  background-color: #fff;
+  top: 50%;
+  border-top-right-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+  /* border-top: 2px solid black; */
+  border-bottom: 2px solid black;
+  border-right: 2px solid black;
+}
+.deposit_payment__section__master nav {
+  top: 0;
+  width: 100%;
+  background-color: var(--primary);
+  height: 3.5rem;
+  border-top-right-radius: 2rem;
+}
 .withdraw__section__master {
   height: 85vh;
   width: 65%;
@@ -282,20 +300,33 @@
     width: 100%;
     height: 400%;
     border-radius: 0;
+    border: none;
   }
   .home__section__master nav {
     /* position: fixed; */
     border-radius: 0;
   }
   .deposit__section__master {
-    transform: translateY(35.25%);
+    transform: translateY(8.25%);
     width: 100%;
     height: 400%;
     /* border: none; */
-    border: 01px solid black;
+    border: none;
     border-radius: 0;
   }
   .deposit__section__master nav {
+    /* position: fixed; */
+    border-radius: 0;
+  }
+  .deposit_payment__section__master {
+    transform: translateY(34.25%);
+    width: 100%;
+    height: 400%;
+    /* border: none; */
+    border: none;
+    border-radius: 0;
+  }
+  .deposit_payment__section__master nav {
     /* position: fixed; */
     border-radius: 0;
   }
