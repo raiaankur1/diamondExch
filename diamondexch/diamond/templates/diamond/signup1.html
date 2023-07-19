@@ -15,18 +15,19 @@
 
 
   <div class="wrapper">
+    <img style="width: 40%; align-items: center; margin-bottom: 2rem;" src="https://dzm0kbaskt4pv.cloudfront.net/v11/static/themes/diamondexch9.com/front/logo.png" alt="">
     <h1 class="h1">Sign Up</h1>
     <form id="form" method="POST" action="">
       {% csrf_token %}
       <div class="phone__main">
-        <label for="phone-no">Phone Number</label>
+        <label for="phone-no" style="color:#fff;">Phone Number</label>
         <input style="margin: 1rem 0 1rem 0;" id="phone-no" name="phone-no" class="register_input" type="text"
           placeholder="Phone Number">
         <div class="error"></div>
       </div>
       <div class="otp__main">
         <div class="Main_form">
-          <label for="otp__input">OTP</label>
+          <label for="otp__input" style="color:#fff;">OTP</label>
           <div id="otp__input" class="input-field">
             <input class="main_form_input" type="number" disabled>
             <input class="main_form_input" type="number" disabled>
@@ -37,7 +38,7 @@
           </div>
           <div class="terms">
             <input type="checkbox" id="checkbox">
-            <label for="checkbox">I agree to these <a href="{% url 'tncs' %}">Terms & conditions</a></label>
+            <label for="checkbox">I agree to these <a style="color: #fff; text-decoration: underline;" href="{% url 'tncs' %}">Terms & conditions</a></label>
           </div>
           <div class="terms over">
             <input type="checkbox" id="checkbox">
@@ -54,8 +55,8 @@
           {{message}}</p>
         {% endfor %}
       </div>
-      <div class="member">
-        Already a member? <a href="{% url 'login' %}">Login here</a>
+      <div class="member" style="color:#fff;">
+        Already a member? <a href="{% url 'login' %}" style="color: #fff; text-decoration: underline;">Login here</a>
       </div>
     </form>
   </div>

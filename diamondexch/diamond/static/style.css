@@ -5,14 +5,26 @@
     font-family: sans-serif;
 }
 body{
-    background-color: gray;
+    background-color: rgb(255, 255, 255);
 }
+:root {
+    --primary: #0383c4;
+    --deposit: #74c16f;
+    --withdraw: #647fea;
+    --password: #ef8c19;
+    --whatsapp: #4bc658;
+    --primary-back: linear-gradient(var(--primary), #034c70);
+  }
+  
 
 .wrapper{
-    width: 330px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 350px;
     padding: 2rem 1rem;
     margin: 50px auto;
-    background-color: #fff;
+    background: var(--primary-back);
     text-align: center;
     border-radius: 1rem;
     top: 50%;
@@ -30,8 +42,8 @@ body{
 }
 
 .h1{
-    font-size: 2rem;
-    color: blueviolet;
+    font-size: 1.5rem;
+    color: rgb(255, 255, 255);
     margin-bottom: 1.2rem;
 }
 .register_input{
@@ -86,6 +98,7 @@ input:focus{
 
 .terms label{
   font-size: .7rem;
+  color: #fff;
 }
 .terms a{
     color: rgb(17, 107, 143);
@@ -138,4 +151,17 @@ border: 1px solid #ddd;
 .main_form_input::-webkit-inner-spin-button,
 .main_form_input::-webkit-outer-spin-button{
     display: none;
+}
+
+@media only screen and (max-width: 900px) {
+    .wrapper{
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        margin: 0;
+        left: 0;
+        justify-content: center;
+        border-radius: 0;
+    }
+
 }

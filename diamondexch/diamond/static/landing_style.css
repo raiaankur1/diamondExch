@@ -105,6 +105,12 @@
   width: 100%;
   background: var(--password);
 }
+.game_name{
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .game_name p {
   text-align: center;
   color: #fff;

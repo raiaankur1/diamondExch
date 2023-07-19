@@ -82,6 +82,10 @@
           <input type="text" placeholder="Username-ID" value={{gameid}}>
           <input type="text" placeholder="Password" value={{game_password}}>
         </div>
+        <div class="direct__tranfer">
+          <input type="submit" value="DEPOSIT">
+          <input type="submit" value="WITHDRAW">
+        </div>
         <div class="amount__tranfer">
           <div class="diamond__login__main">
             <div class="diamond__login__img">
@@ -103,8 +107,8 @@
           </div>
           <div class="amount__deposit-section">
             <h3>Money Section</h3>
-            <button><a href="{% url 'deposit' %}">DEPOSIT</a></button>
-            <button><a href="{% url 'withdraw' %}">WITHDRAW</a></button>
+            <button><a style="color: #fff;" href="{% url 'deposit' %}">DEPOSIT</a></button>
+            <button><a style="color: #fff;" href="{% url 'withdraw' %}">WITHDRAW</a></button>
           </div>
           <div class="whatsapp__help">
             <a href="https://wa.link/6l1a5i" target="_blank">

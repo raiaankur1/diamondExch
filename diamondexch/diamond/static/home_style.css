@@ -319,7 +319,7 @@
     border-radius: 0;
   }
   .deposit_payment__section__master {
-    transform: translateY(34.25%);
+    transform: translateY(37.00%);
     width: 100%;
     height: 400%;
     /* border: none; */
@@ -522,6 +522,10 @@
 }
 
 @media only screen and (max-width: 900px) {
+
+  .diamond__login__form {
+    height: 50% !important;
+  }
   .person__deposit-info {
     gap: 1rem;
   }
@@ -540,7 +544,7 @@
   .diamond__login__main {
     width: 100%;
     border-radius: 0;
-    height: 100vh;
+    height: 80vh;
   }
   .whatsapp__help {
     height: 100vh;
@@ -559,13 +563,13 @@
     font-size: 40px;
   }
   .amount__deposit-section button {
-    font-size: 30px;
+    font-size: 30px !important;
   }
   .whatsapp__help svg {
-    height: 6em;
+    height: 5em;
   }
   .whatsapp__help h3 {
-    font-size: 30px;
+    font-size: 25px;
   }
 }
 
@@ -723,13 +727,14 @@ input::-webkit-inner-spin-button {
   }
   .upi__section {
     width: 100%;
+    margin-top: 2rem;
   }
   .qr__section {
     height: 100%;
     width: 100%;
   }
   .payment__form {
-    height: 150vh;
+    height: 200vh;
     width: 100%;
   }
 }
@@ -813,6 +818,13 @@ input::-webkit-inner-spin-button {
   .deposit__amount h3 {
     font-size: 17px;
   }
+  .withdraw__main__form {
+    width: 100%;
+  }
+  .form__main__withdraw {
+    width: 100% !important;
+    border-radius: 0 !important;
+  }
 }
 
 /* -----withdraw__ form__  */
@@ -888,4 +900,34 @@ a {
   outline: none !important;
   font-size: 30px !important;
   font-weight: 600;
+}
+
+.direct__tranfer{
+  display: none;
+  width: 100%;
+  text-align: center;
+  height: 7vh;
+}
+.direct__tranfer input{
+  width: 40%;
+  height: 100%;
+  outline: none;
+  border: none;
+  color: #fff;
+  border-radius: 5rem;
+  font-size: 1.2em;
+  font-weight: 600;
+}
+.direct__tranfer input:nth-child(1){
+  background: var(--deposit);
+}
+.direct__tranfer input:nth-child(2){
+  background: var(--password);
+}
+
+@media only screen and (max-width: 900px) {
+  .direct__tranfer{
+    display: block;
+  }
+
 }

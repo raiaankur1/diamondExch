@@ -12,28 +12,29 @@
 
 <body>
   <div class="wrapper">
+    <img style="width: 40%; align-items: center; margin-bottom: 2rem;" src="https://dzm0kbaskt4pv.cloudfront.net/v11/static/themes/diamondexch9.com/front/logo.png" alt="">
     <h1 class="h1">Sign Up</h1>
     <form id="form" method="POST" action="">
       {% csrf_token %}
       <div class="phone__main">
-        <label for="phone-no">Phone Number</label>
+        <label for="phone-no" style="color:#fff;">Phone Number</label>
         <input style="margin: 1rem 0 1rem 0;" id="phone-no" name="phone-no" class="register_input" type="text"
           placeholder="Phone Number" value={{ phone_number }} disabled>
         <div class="error"></div>
       </div>
       <div class="otp__main">
         <div class="Main_form">
-          <label for="otp__input">Password</label>
+          <label for="otp__input" style="color:#fff;">Password</label>
           <input class="register_input" type="password" name="password1" placeholder="Password" style="margin-bottom: 1.5rem;">
-          <label for="otp__input">Confirm Password</label>
+          <label for="otp__input" style="color:#fff;">Confirm Password</label>
           <input class="register_input" type="password" name="password2" placeholder="Confirm Password" style="margin-bottom: 1.5rem;">
           <div class="terms">
             <input type="checkbox" id="checkbox">
-            <label for="checkbox">I agree to these <a href="{% url 'tncs' %}">Terms & conditions</a></label>
+            <label for="checkbox" style="color:#fff;">I agree to these <a style="color: #fff; text-decoration: underline;" href="{% url 'tncs' %}">Terms & conditions</a></label>
           </div>
           <div class="terms over" style="margin-bottom: 1rem;">
             <input type="checkbox" id="checkbox">
-            <label for="checkbox">Over 18+</label>
+            <label for="checkbox" style="color:#fff;">Over 18+</label>
           </div>
           <!-- <button type="submit" class="otp_button"> -->
           <input type="submit"
@@ -46,8 +47,8 @@
           {{message}}</p> {% endfor %}
         <!-- <a href="#"><button type="submit" class="otp_button">Verify OTP</button></a> -->
       </div>
-      <div class="member">
-        Already a member? <a href="{% url 'login' %}">Login here</a>
+      <div class="member" style="color:#fff;">
+        Already a member? <a style="color: #fff; text-decoration: underline;" href="{% url 'login' %}">Login here</a>
       </div>
     </form>
   </div>

@@ -14,8 +14,9 @@
 <body>
 
     <div class="wrapper">
-        <h1 class="h1">Login</h1>
-        <form method="POST" action="">
+        <img style="width: 40%; align-items: center; margin-bottom: 2rem;" src="https://dzm0kbaskt4pv.cloudfront.net/v11/static/themes/diamondexch9.com/front/logo.png" alt="">
+        <h1 class="h1" style="color:#fff;">Login</h1>
+        <form method="POST" style="color:#fff;" action="">
             {% csrf_token %}
             {{form}}
             <!-- <input class="register_input" type="text" name="phone_number" placeholder="Phone Number">
@@ -25,14 +26,14 @@
                 style="font-size: 0.8rem; font-weight: bold;">{{message}}</p>
             {% endfor %}
             <div class="recover">
-                <a href="#">Forget password ?</a>
+                <a href="#" style="color:#fff;">Forget password ?</a>
             </div>
             <input style="outline: none; border-radius: 2rem; padding: 1rem 0; border: none; background: #0383c4; color: #fff; font-size: 15px; width: 80%;" type="submit" />
         </form>
 
         <!-- <a href="/otp.html"><button>Get OTP</button></a> -->
-        <div class="member">
-            Not a member? <a href="{% url 'signup1' %}">Register Now</a>
+        <div class="member" style="color:#fff;">
+            Not a member? <a style="color: #fff; text-decoration: underline;" href="{% url 'signup1' %}">Register Now</a>
         </div>
     </div>
 
