@@ -296,7 +296,7 @@
   }
 
   .home__section__master {
-    transform: translateY(33.80%);
+    transform: translateY(33.8%);
     width: 100%;
     height: 400%;
     border-radius: 0;
@@ -319,7 +319,7 @@
     border-radius: 0;
   }
   .deposit_payment__section__master {
-    transform: translateY(35.50%);
+    transform: translateY(35.5%);
     width: 100%;
     height: fit-content;
     /* border: none; */
@@ -522,7 +522,6 @@
 }
 
 @media only screen and (max-width: 900px) {
-
   .diamond__login__form {
     height: 50% !important;
   }
@@ -634,9 +633,15 @@
   height: 70%;
   border: 1px solid black;
 }
-.upi__app img {
-  width: 70%;
-  height: 70%;
+
+.upi__app a {
+  align-items: center;
+  justify-content: center;
+}
+
+.upi__app a img {
+  width: 87%;
+  height: 87%;
 }
 
 .qr__section {
@@ -708,6 +713,23 @@ input::-webkit-inner-spin-button {
   color: #fff;
   margin-top: 0.5rem;
 }
+
+.payment__form__input .submit {
+  width: 90%;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background: var(--deposit);
+  font-weight: 600;
+  outline: none;
+  border: none;
+  height: 3rem;
+  border-radius: 2rem;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+}
+
 .payment__form button {
   width: 90%;
   background: var(--deposit);
@@ -902,7 +924,7 @@ a {
   font-weight: 600;
 }
 
-.direct__tranfer{
+.direct__tranfer {
   display: none;
   width: 100%;
   text-align: center;
@@ -910,10 +932,10 @@ a {
 }
 
 @media only screen and (max-width: 900px) {
-  .direct__tranfer{
+  .direct__tranfer {
     display: block;
   }
-  .direct__tranfer button{
+  .direct__tranfer button {
     width: 40%;
     height: 100%;
     outline: none;
@@ -923,11 +945,10 @@ a {
     font-size: 1.2em;
     font-weight: 600;
   }
-  .direct__tranfer button:nth-child(1){
+  .direct__tranfer button:nth-child(1) {
     background: var(--whatsapp);
   }
-  .direct__tranfer button:nth-child(2){
+  .direct__tranfer button:nth-child(2) {
     background: rgb(217, 12, 12);
   }
-  
 }

@@ -62,7 +62,7 @@
                         <h3>$ <span>{{ balance }}</span></h3>
                     </div>
                 </div>
- 
+
 
                 <div class="account__detail">
                     <svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 512 512">
@@ -79,13 +79,16 @@
                 <div class="upi__section">
                     <div class="upi__id">
                         <div class="upi__app">
-                            <img src="{% static '/paytm.png' %}" alt="paytm">
+                            <a href="upi://pay?pa=7900619000@paytm&pn=PaytmUser&cu=INR" class="upi-pay1"><img
+                                    src="{% static '/paytm.png' %}" alt="paytm"></a>
                         </div>
                         <div class="upi__app">
-                            <img src="{% static '/phonepy.png' %}" alt="paytm">
+                            <a href="upi://pay?pa=7900619000@paytm&amp;pn=Paytm User K&amp;cu=INR" class="upi-pay1"><img
+                                    src="{% static '/phonepy.png' %}" alt="paytm"></a>
                         </div>
                         <div class="upi__app">
-                            <img src="{% static '/googlepay.png' %}" alt="paytm">
+                            <a href="upi://pay?pa=7900619000@paytm&amp;pn=Paytm User K&amp;cu=INR" class="upi-pay1"><img
+                                    src="{% static '/googlepay.png' %}" alt="paytm"></a>
                         </div>
                     </div>
                     <div class="bank__airtel">
@@ -112,9 +115,11 @@
                         <input type="number" placeholder="AMOUNT" name="deposit_amount">
                         <label for="utr-no">UTR No.</label>
                         <input type="text" placeholder="UTR Number" name="utr_no">
-                        <input style="outline: none; border-radius: 2rem; border: none; background: #0383c4; color: #fff; font-size: 15px; width: 80%;" type="submit" value="Submit">
+                        <input
+                            class="submit" style="outline: none; border-radius: 2rem; border: none; background: #0383c4; color: #fff; font-size: 15px; width: 80%;"
+                            type="submit" value="Submit">
                     </form>
-                    
+
                 </div>
             </div>
         </div>
