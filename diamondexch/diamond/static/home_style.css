@@ -296,7 +296,7 @@
   }
 
   .home__section__master {
-    transform: translateY(37.25%);
+    transform: translateY(33.80%);
     width: 100%;
     height: 400%;
     border-radius: 0;
@@ -319,9 +319,9 @@
     border-radius: 0;
   }
   .deposit_payment__section__master {
-    transform: translateY(37.00%);
+    transform: translateY(35.50%);
     width: 100%;
-    height: 400%;
+    height: fit-content;
     /* border: none; */
     border: none;
     border-radius: 0;
@@ -448,13 +448,13 @@
   font-size: 1.5vw;
   width: 80%;
   height: 20%;
-  background-color: #74c16f;
+  background: rgb(255, 16, 16);
 }
 .amount__deposit-section button:nth-child(1) {
-  background-color: var(--deposit);
+  background-color: var(--withdraw);
 }
 .amount__deposit-section button:nth-child(2) {
-  background-color: var(--withdraw);
+  background-color: var(--whatsapp);
 }
 
 /* diamond login home form  */
@@ -544,10 +544,10 @@
   .diamond__login__main {
     width: 100%;
     border-radius: 0;
-    height: 80vh;
+    height: 75vh;
   }
   .whatsapp__help {
-    height: 100vh;
+    height: 40vh;
     border-radius: 0;
     width: 100%;
   }
@@ -908,26 +908,26 @@ a {
   text-align: center;
   height: 7vh;
 }
-.direct__tranfer input{
-  width: 40%;
-  height: 100%;
-  outline: none;
-  border: none;
-  color: #fff;
-  border-radius: 5rem;
-  font-size: 1.2em;
-  font-weight: 600;
-}
-.direct__tranfer input:nth-child(1){
-  background: var(--deposit);
-}
-.direct__tranfer input:nth-child(2){
-  background: var(--password);
-}
 
 @media only screen and (max-width: 900px) {
   .direct__tranfer{
     display: block;
   }
-
+  .direct__tranfer button{
+    width: 40%;
+    height: 100%;
+    outline: none;
+    border: none;
+    color: #fff;
+    border-radius: 5rem;
+    font-size: 1.2em;
+    font-weight: 600;
+  }
+  .direct__tranfer button:nth-child(1){
+    background: var(--whatsapp);
+  }
+  .direct__tranfer button:nth-child(2){
+    background: rgb(217, 12, 12);
+  }
+  
 }

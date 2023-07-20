@@ -5,7 +5,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Diamond Exchange</title>
   <link rel="stylesheet" href="{% static '/style.css' %}">
   <script src="https://kit.fontawesome.com/9267f5f00e.js" crossorigin="anonymous"></script>
 </head>
@@ -43,7 +43,7 @@
           <!-- </button> -->
         </div>
         {% for message in messages %}
-        <p {% if message.tags %} class="{{ message.tags }}" {% endif %} style="font-size: 0.8rem; font-weight: bold;">
+        <p {% if message.tags %} class="{{ message.tags }}" {% endif %} style="font-size: 0.8rem; font-weight: bold; margin-top: 1rem;">
           {{message}}</p> {% endfor %}
         <!-- <a href="#"><button type="submit" class="otp_button">Verify OTP</button></a> -->
       </div>

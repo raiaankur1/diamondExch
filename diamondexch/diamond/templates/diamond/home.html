@@ -6,7 +6,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Diamond Exchange</title>
   <link rel="stylesheet" href="{% static '/home_style.css' %}">
 </head>
 
@@ -83,8 +83,8 @@
           <input type="text" placeholder="Password" value={{game_password}}>
         </div>
         <div class="direct__tranfer">
-          <input type="submit" value="DEPOSIT">
-          <input type="submit" value="WITHDRAW">
+          <button><a style="color: #fff;" href="{% url 'deposit' %}">DEPOSIT</a></button>
+          <button><a style="color: #fff;" href="{% url 'withdraw' %}">WITHDRAW</a></button>
         </div>
         <div class="amount__tranfer">
           <div class="diamond__login__main">
