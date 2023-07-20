@@ -200,14 +200,14 @@ footer {
     width: 90%;
   }
   .extra_nav{
-    gap: 1rem;
+    gap: 1.75rem;
     height: 4vh;
   }
   .extra_nav section{
     height: 100%;
   }
   .nav__flex2 p{
-    font-size: 1rem !important;
+    font-size: .89rem !important;
   }
   .nav__flex2:nth-child(1){
     visibility: hidden;
@@ -231,7 +231,13 @@ footer {
  width: 100%;
  overflow-x: scroll;
  /* padding: 0 1rem; */
+ padding: .25rem 0 .25rem 0;
  background-color: #343435;
+}
+.extra_nav section a{
+  height: 100%;
+  width: 100%;
+  text-align: center;
 }
 .extra_nav::-webkit-scrollbar {
   display: none;
@@ -239,8 +245,8 @@ footer {
 .extra_nav section{
   height: 100%;
 }
-.extra_nav section img{
-  height: 60%;
+.extra_nav section a img{
+  height: 50%;
 }
 .nav__flex2{
   display: flex;
@@ -248,7 +254,7 @@ footer {
   align-items: center;
   justify-content: center;
 }
-.nav__flex2 p{
+.nav__flex2 a p{
   color: #fff;
   font-size: 1rem;
 }
