@@ -172,7 +172,7 @@ footer {
 .footer_licence {
   color: #fff;
 }
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 450px) {
   footer {
     height: fit-content;
     gap: 3rem;
