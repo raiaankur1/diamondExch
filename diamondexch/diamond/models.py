@@ -108,7 +108,7 @@ STATUS_CHOICES = (
 class Depositstatement(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     amount = models.IntegerField(default=0)
-    utrno = models.CharField(default="", max_length=100)
+    utrno = models.CharField(max_length=100, unique=True)
     created_at = models.DateTimeField(
         auto_now_add=True)
     status = models.CharField(
@@ -121,7 +121,8 @@ class Depositstatement(models.Model):
 class Withdrawstatement(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     amount = models.IntegerField(default=0)
-    upiid = models.CharField(default="", max_length=25)
+    upiid = models.CharField(max_length=25, unique=True)
+    cause = models.CharField(max_length=100, default="Reviewing Request")
     created_at = models.DateTimeField(
         auto_now_add=True)
     status = models.CharField(

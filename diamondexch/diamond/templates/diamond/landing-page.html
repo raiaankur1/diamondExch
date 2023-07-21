@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diamond Exchange</title>
-    <link rel="stylesheet" href="{% static 'landing_style.css' %}">
+    <link rel="stylesheet" href="{% static 'landing_style.css' %}" media="print" onload="this.media='all'">
 </head>
 
 <body>
@@ -21,24 +21,24 @@
         </div>
     </nav>
     <div class="extra_nav">
-        <section class="nav__flex2"><a href="{% url 'signup1' %}"><img src="{% static '/Nav/menu-tennis.png' %}"><p>Tennis</p></a></section>
-        <section class="nav__flex2"><a href="{% url 'signup1' %}"><img src="{% static '/Nav/menu-binary.png' %}"><p>Binary</p></a></section>
-        <section class="nav__flex2"><a href="{% url 'signup1' %}"><img src="{% static '/Nav/menu-casino.png' %}"><p>Casino</p></a></section>
-        <section class="nav__flex2"><a href="{% url 'signup1' %}"><img src="{% static '/Nav/menu-cricket.png' %}"><p>Cricket</p></a></section>
-        <section class="nav__flex2"><a href="{% url 'signup1' %}"><img src="{% static '/Nav/menu-football.png' %}"><p>Football</p></a></section>
-        <section class="nav__flex2"><a href="{% url 'signup1' %}"><img src="{% static '/Nav/menu-grayhoundracing.png' %}"><p>Racing</p></a></section>
-        <section class="nav__flex2"><a href="{% url 'signup1' %}"><img src="{% static '/Nav/menu-home.png' %}"><p>Home</p></a></section>
-        <section class="nav__flex2"><a href="{% url 'signup1' %}"><img src="{% static '/Nav/menu-hosce.png' %}"><p>Horse</p></a></section>
-        <section class="nav__flex2"><a href="{% url 'signup1' %}"><img src="{% static '/Nav/menu-inplay.png' %}"><p>Inplay</p></a></section>
-        <section class="nav__flex2"><a href="{% url 'signup1' %}"><img src="{% static '/Nav/menu-intcasino.png' %}"><p>Casino</p></a></section>
-        <section class="nav__flex2"><a href="{% url 'signup1' %}"><img src="{% static '/Nav/menu-politics.png' %}"><p>Politics</p></a></section>
-        <section class="nav__flex2"><a href="{% url 'signup1' %}"><img src="{% static '/Nav/menu-sports.png' %}"><p>Sports</p></a></section>
-        <section class="nav__flex2"><a href="{% url 'signup1' %}"><img src="{% static '/Nav/menu-kabaddi.png' %}"><p>Kabaddi</p></a></section>
+        <section class="nav__flex2"><a href="{% url 'signup1' %}"><img src="{% static '/Nav/menu-tennis.png' %}" loading="lazy"><p>Tennis</p></a></section>
+        <section class="nav__flex2"><a href="{% url 'signup1' %}"><img src="{% static '/Nav/menu-binary.png' %}" loading="lazy"><p>Binary</p></a></section>
+        <section class="nav__flex2"><a href="{% url 'signup1' %}"><img src="{% static '/Nav/menu-casino.png' %}" loading="lazy"><p>Casino</p></a></section>
+        <section class="nav__flex2"><a href="{% url 'signup1' %}"><img src="{% static '/Nav/menu-cricket.png' %}" loading="lazy"><p>Cricket</p></a></section>
+        <section class="nav__flex2"><a href="{% url 'signup1' %}"><img src="{% static '/Nav/menu-football.png' %}" loading="lazy"><p>Football</p></a></section>
+        <section class="nav__flex2"><a href="{% url 'signup1' %}"><img src="{% static '/Nav/menu-grayhoundracing.png' %}" loading="lazy"><p>Racing</p></a></section>
+        <section class="nav__flex2"><a href="{% url 'signup1' %}"><img src="{% static '/Nav/menu-home.png' %}" loading="lazy"><p>Home</p></a></section>
+        <section class="nav__flex2"><a href="{% url 'signup1' %}"><img src="{% static '/Nav/menu-hosce.png' %}" loading="lazy"><p>Horse</p></a></section>
+        <section class="nav__flex2"><a href="{% url 'signup1' %}"><img src="{% static '/Nav/menu-inplay.png' %}" loading="lazy"><p>Inplay</p></a></section>
+        <section class="nav__flex2"><a href="{% url 'signup1' %}"><img src="{% static '/Nav/menu-intcasino.png' %}" loading="lazy"><p>Casino</p></a></section>
+        <section class="nav__flex2"><a href="{% url 'signup1' %}"><img src="{% static '/Nav/menu-politics.png' %}" loading="lazy"><p>Politics</p></a></section>
+        <section class="nav__flex2"><a href="{% url 'signup1' %}"><img src="{% static '/Nav/menu-sports.png' %}" loading="lazy"><p>Sports</p></a></section>
+        <section class="nav__flex2"><a href="{% url 'signup1' %}"><img src="{% static '/Nav/menu-kabaddi.png' %}" loading="lazy"><p>Kabaddi</p></a></section>
     </div>
     <div class="landing_main">
         <section>
             <div class="game_img">
-                <img src="{% static '/landing/32cardsA.jpg' %}">
+                <img src="{% static '/landing/32cardsA.jpg' %}" loading="lazy">
             </div>
             <div class="game_name">
                 <p>32cardsA</p>
@@ -46,7 +46,7 @@
         </section>
         <section>
             <div class="game_img">
-                <img src="{% static '/landing/bollywood-casino.jpg' %}">
+                <img src="{% static '/landing/bollywood-casino.jpg' %}" loading="lazy">
 
             </div>
             <div class="game_name">
@@ -55,7 +55,7 @@
         </section>
         <section>
             <div class="game_img">
-                <img src="{% static '/landing/baccarat.png' %}">
+                <img src="{% static '/landing/baccarat.png' %}" loading="lazy">
 
             </div>
             <div class="game_name">
@@ -64,7 +64,7 @@
         </section>
         <section>
             <div class="game_img">
-                <img src="{% static '/landing/cmeter.jpg' %}">
+                <img src="{% static '/landing/cmeter.jpg' %}" loading="lazy">
 
             </div>
             <div class="game_name">
@@ -73,7 +73,7 @@
         </section>
         <section>
             <div class="game_img">
-                <img src="{% static '/landing/cricketv3.jpg' %}">
+                <img src="{% static '/landing/cricketv3.jpg' %}" loading="lazy">
 
             </div>
             <div class="game_name">
@@ -82,7 +82,7 @@
         </section>
         <section>
             <div class="game_img">
-                <img src="{% static '/landing/worli.jpg' %}">
+                <img src="{% static '/landing/worli.jpg' %}" loading="lazy">
 
             </div>
             <div class="game_name">
@@ -91,7 +91,7 @@
         </section>
         <section>
             <div class="game_img">
-                <img src="{% static '/landing/war.jpg' %}">
+                <img src="{% static '/landing/war.jpg' %}" loading="lazy">
 
             </div>
             <div class="game_name">
@@ -100,7 +100,7 @@
         </section>
         <section>
             <div class="game_img">
-                <img src="{% static '/landing/teenpatti1.jpg' %}">
+                <img src="{% static '/landing/teenpatti1.jpg' %}" loading="lazy">
 
             </div>
             <div class="game_name">
@@ -109,7 +109,7 @@
         </section>
         <section>
             <div class="game_img">
-                <img src="{% static '/landing/teencasino.jpg' %}">
+                <img src="{% static '/landing/teencasino.jpg' %}" loading="lazy">
 
             </div>
             <div class="game_name">
@@ -118,7 +118,7 @@
         </section>
         <section>
             <div class="game_img">
-                <img src="{% static '/landing/superover.jpg' %}">
+                <img src="{% static '/landing/superover.jpg' %}" loading="lazy">
 
             </div>
             <div class="game_name">
@@ -127,7 +127,7 @@
         </section>
         <section>
             <div class="game_img">
-                <img src="{% static '/landing/race20.png' %}">
+                <img src="{% static '/landing/race20.png' %}" loading="lazy">
 
             </div>
             <div class="game_name">
@@ -136,7 +136,7 @@
         </section>
         <section>
             <div class="game_img">
-                <img src="{% static '/landing/queen.jpg' %}">
+                <img src="{% static '/landing/queen.jpg' %}" loading="lazy">
 
             </div>
             <div class="game_name">
@@ -145,7 +145,7 @@
         </section>
         <section>
             <div class="game_img">
-                <img src="{% static '/landing/poker.jpg' %}">
+                <img src="{% static '/landing/poker.jpg' %}" loading="lazy">
 
             </div>
             <div class="game_name">
@@ -154,7 +154,7 @@
         </section>
         <section>
             <div class="game_img">
-                <img src="{% static '/landing/lucky7eu.jpg' %}">
+                <img src="{% static '/landing/lucky7eu.jpg' %}" loading="lazy">
 
             </div>
             <div class="game_name">
@@ -163,7 +163,7 @@
         </section>
         <section>
             <div class="game_img">
-                <img src="{% static '/landing/lucky7.jpg' %}">
+                <img src="{% static '/landing/lucky7.jpg' %}" loading="lazy">
 
             </div>
             <div class="game_name">
@@ -172,7 +172,7 @@
         </section>
         <section>
             <div class="game_img">
-                <img src="{% static '/landing/lottery.jpg' %}">
+                <img src="{% static '/landing/lottery.jpg' %}" loading="lazy">
 
             </div>
             <div class="game_name">
@@ -181,7 +181,7 @@
         </section>
         <section>
             <div class="game_img">
-                <img src="{% static '/landing/dtl.jpg' %}">
+                <img src="{% static '/landing/dtl.jpg' %}" loading="lazy">
 
             </div>
             <div class="game_name">
@@ -190,7 +190,7 @@
         </section>
         <section>
             <div class="game_img">
-                <img src="{% static '/landing/dt.jpg' %}">
+                <img src="{% static '/landing/dt.jpg' %}" loading="lazy">
 
             </div>
             <div class="game_name">
@@ -199,7 +199,7 @@
         </section>
         <section>
             <div class="game_img">
-                <img src="{% static '/landing/dt202.jpg' %}">
+                <img src="{% static '/landing/dt202.jpg' %}" loading="lazy">
 
             </div>
             <div class="game_name">
@@ -208,7 +208,7 @@
         </section>
         <section>
             <div class="game_img">
-                <img src="{% static '/landing/cricketv3.jpg' %}">
+                <img src="{% static '/landing/cricketv3.jpg' %}" loading="lazy">
 
             </div>
             <div class="game_name">
@@ -217,7 +217,7 @@
         </section>
         <section>
             <div class="game_img">
-                <img src="{% static '/landing/bollywood-casino.jpg' %}">
+                <img src="{% static '/landing/bollywood-casino.jpg' %}" loading="lazy">
 
             </div>
             <div class="game_name">
@@ -226,7 +226,7 @@
         </section>
         <section>
             <div class="game_img">
-                <img src="{% static '/landing/32cardsA.jpg' %}">
+                <img src="{% static '/landing/32cardsA.jpg' %}" loading="lazy">
 
             </div>
             <div class="game_name">
@@ -235,7 +235,7 @@
         </section>
         <section>
             <div class="game_img">
-                <img src="{% static '/landing/bollywood-casino.jpg' %}">
+                <img src="{% static '/landing/bollywood-casino.jpg' %}" loading="lazy">
 
             </div>
             <div class="game_name">
@@ -244,7 +244,7 @@
         </section>
         <section>
             <div class="game_img">
-                <img src="{% static '/landing/teenpatti.jpg' %}">
+                <img src="{% static '/landing/teenpatti.jpg' %}" loading="lazy">
 
             </div>
             <div class="game_name">
@@ -253,7 +253,7 @@
         </section>
         <section>
             <div class="game_img">
-                <img src="{% static '/landing/queen.jpg' %}">
+                <img src="{% static '/landing/queen.jpg' %}" loading="lazy">
 
             </div>
             <div class="game_name">

@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diamond Exchange</title>
-    <link rel="stylesheet" href="{% static '/home_style.css' %}">
+    <link rel="stylesheet" href="{% static '/home_style.css' %}" media="print" onload="this.media='all'">
 </head>
 
 <body>
@@ -115,6 +115,10 @@
                         <input type="number" placeholder="AMOUNT" name="deposit_amount">
                         <label for="utr-no">UTR No.</label>
                         <input type="text" placeholder="UTR Number" name="utr_no">
+                        {% for message in messages %}
+                        <p {% if message.tags %} class="{{ message.tags }}" {% endif %}
+                            style="font-size: 0.8rem; font-weight: bold;">{{message}}</p>
+                        {% endfor %}
                         <input
                             class="submit" style="outline: none; border-radius: 2rem; border: none; background: #0383c4; color: #fff; font-size: 15px; width: 80%;"
                             type="submit" value="Submit">

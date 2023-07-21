@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diamond Exchange</title>
-    <link rel="stylesheet" href="{% static '/home_style.css' %}">
+    <link rel="stylesheet" href="{% static '/home_style.css' %}" media="print" onload="this.media='all'">
 </head>
 
 <body>
@@ -97,17 +97,17 @@
                             </div>
                             <div class="deposit__no__status">
                                 <p>{{ ds.user.phone_number }}</p>
-                                <p class="deposit__status">Status: <span>Deposit</span></p>
+                                <p class="deposit__status">Status: <span style="font-size: 0.9rem;">Deposit</span></p>
                             </div>
 
                         </div>
                         <div class="deposit__amount">
-                            <h3>Deposit Amount</h3>
-                            <h3>$ <span>{{ds.amount}}</span></h3>
+                            <h3 style="font-size: 0.9rem;">Deposit Amount</h3>
+                            <h3 style="font-size: 0.9rem;">$ <span>{{ds.amount}}</span></h3>
                         </div>
                         <div class="deposit__utr">
-                            <span>UTR no.</span>
-                            <span>{{ ds.utrno }}</span>
+                            <span style="font-size: 0.9rem;">UTR no.</span>
+                            <span style="font-size: 0.9rem;">{{ ds.utrno }}</span>
                         </div>
                         <div class="deposit__request__button">
                             <button>{{ ds.status }}</button>

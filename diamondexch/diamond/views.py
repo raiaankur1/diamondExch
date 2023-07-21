@@ -356,11 +356,18 @@ def deposit(request):
             utr_no = request.POST.get('utr_no')
             # reupi = request.POST.get('reupi')
             # password = request.POST.get('password')
-            dStatement = Depositstatement(
-                user=user, amount=amount, utrno=utr_no)
-            dStatement.save()
+            try:
+                Depositstatement.objects.get(utrno=utr_no)
+                messages.error(
+                    request, f"A request with the same UTR has already been made."
+                )
+                return redirect("deposit")
+            except Depositstatement.DoesNotExist:
+                dStatement = Depositstatement(
+                    user=user, amount=amount, utrno=utr_no)
+                dStatement.save()
 
-            return redirect('depositstatements')
+                return redirect('depositstatements')
         except:
             return render(request, "diamond/payment.html", content)
 

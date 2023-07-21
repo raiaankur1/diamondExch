@@ -1,21 +1,12 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 
+admin.site.site_header = "Diamond Exchange Admin"
+admin.site.site_title = "Diamond Exchange Admin"
+
 from . import models
 from .forms import UserChangeForm, UserCreationForm
 # Register your models here.
-
-
-class DiamondAdmin(admin.ModelAdmin):
-    pass
-
-
-# admin.site.register(models.User, DiamondAdmin)
-admin.site.register(models.Gameid, DiamondAdmin)
-admin.site.register(models.Depositstatement, DiamondAdmin)
-admin.site.register(models.Withdrawstatement, DiamondAdmin)
-admin.site.register(models.Verifyotp, DiamondAdmin)
-
 
 class UserAdmin(BaseUserAdmin):
     form = UserChangeForm
@@ -40,6 +31,26 @@ class UserAdmin(BaseUserAdmin):
         if not is_superuser:
             form.base_fields['phone_number'].disabled = True
         return form
-
-
 admin.site.register(models.User, UserAdmin)
+
+class GameidAdmin(admin.ModelAdmin):
+  list_display = ('username', 'user')
+  search_fields = ('user',)
+# admin.site.register(models.User, DiamondAdmin)
+admin.site.register(models.Gameid, GameidAdmin)
+
+class DepositsAdmin(admin.ModelAdmin):
+  list_display = ('user', 'utrno','amount','status',)
+  list_filter = ('status',)
+  search_fields = ('user',)
+admin.site.register(models.Depositstatement, DepositsAdmin)
+
+class WithdrawalsAdmin(admin.ModelAdmin):
+    list_display = ('user','upiid','amount','status',)
+    list_filter = ('status',)
+    search_fields = ('user',)
+admin.site.register(models.Withdrawstatement, WithdrawalsAdmin)
+
+class DiamondAdmin(admin.ModelAdmin):
+    pass
+admin.site.register(models.Verifyotp, DiamondAdmin)
