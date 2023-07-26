@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-j+oj4+2nnaz^kmzbl4s8xe0y1hr@sy=xphr7^7vthy(cal4a*%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['www.thediamondexch.club', '127.0.0.1', 'thediamondexch.club']
 
