@@ -238,6 +238,7 @@ footer {
   height: 100%;
   width: 100%;
   text-align: center;
+  text-decoration: none;
 }
 .extra_nav::-webkit-scrollbar {
   display: none;
@@ -257,4 +258,22 @@ footer {
 .nav__flex2 a p{
   color: #fff;
   font-size: 1rem;
+}
+.extra_graphics{
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-evenly;
+  align-items: center;
+  height: fit-content;
+}
+.extra_graphics img{
+  width: 200px;
+}
+@media only screen and (max-width: 900px) {
+  .extra_graphics img{
+    width: 150px;
+  }
+
 }
