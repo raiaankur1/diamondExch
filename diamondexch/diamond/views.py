@@ -24,6 +24,10 @@ def termsNcondns(request):
     return render(request, "diamond/termsNCondns.html", {})
 
 
+def blog(request):
+    return render(request, "diamond/blog.html", {})
+
+
 def signup1(request):
     if request.user.is_authenticated:
         return redirect('home')

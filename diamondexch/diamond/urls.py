@@ -18,4 +18,5 @@ urlpatterns = [
     path('withdraw', views.withdraw, name="withdraw"),
     path('depositStatements', views.depositStatements, name="depositstatements"),
     path('withdrawStatements', views.withdrawStatements, name="withdrawstatements"),
+    path('blog', views.blog, name="blog"),
 ]
